@@ -1,0 +1,690 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+
+  outline: none;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+}
+
+img {
+  width: 100%;
+}
+
+.header_title {
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+
+  background-color: rgb(204, 34, 208);
+}
+
+.container_logo {
+  height: 50px;
+}
+
+.herts_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50px;
+}
+
+.title_navigate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title_navigate li {
+  margin: 25px;
+
+  list-style: none;
+
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.link {
+  text-decoration:none; 
+  display: inline-block; 
+  line-height: 1; 
+  color:#2F73B6;
+}
+
+.link:after {
+  display: block; /*превращаем его в блочный элемент*/
+  content: ""; /*контента в данном блоке не будет поэтому в кавычках ничего не ставим*/
+  height: 3px; /*задаём высоту линии*/
+  width: 0%; /*задаём начальную ширину элемента (линии)*/
+  background-color: #225384; /*цвет фона элемента*/
+  transition: width 0.4s ease-in-out; /*данное свойство отвечает за плавное изменение ширины. Здесь можно задать время анимации в секундах (в данном случае задано 0.4 секунды)*/
+}
+
+.link:hover:after,
+.link:focus:after {
+width: 100%;
+}
+
+.link:hover{
+  color:#225384;
+}
+
+:root {
+  --glow-hue: 222deg;
+  --shadow-hue: 180deg;
+  --spring-easing: linear(
+  0, 0.002, 0.01 0.9%, 0.038 1.8%, 0.156, 0.312 5.8%, 0.789 11.1%, 1.015 14.2%,
+  1.096, 1.157, 1.199, 1.224 20.3%, 1.231, 1.231, 1.226, 1.214 24.6%,
+  1.176 26.9%, 1.057 32.6%, 1.007 35.5%, 0.984, 0.968, 0.956, 0.949 42%,
+  0.946 44.1%, 0.95 46.5%, 0.998 57.2%, 1.007, 1.011 63.3%, 1.012 68.3%,
+  0.998 84%, 1
+);
+  --spring-duration: 1.33s;
+}
+
+@property --shimmer {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 33deg;
+}
+
+@keyframes shimmer {
+  0% {
+      --shimmer: 0deg;
+  }
+  100% {
+      --shimmer: 360deg;
+  }
+}
+
+@keyframes shine {
+  0% {
+      opacity: 0;
+  }
+  15% {
+      opacity: 1;
+  }
+  55% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+@keyframes text {
+  0% {
+      background-position: 100% center;
+  }    
+  100% {
+      background-position: -100% center;
+  }    
+}
+
+.btn_navigate {
+  color: var(--bg);
+  font-weight: 600;
+  /*     background-image: linear-gradient(90deg, #fcecfe, #fbf6e7, #e6fcf5); */
+  background-image: linear-gradient(
+      315deg,
+      #ffc4ec -10%,
+      #efdbfd 50%,
+      #ffedd6 110%
+  );
+  padding: 2px 2px;
+  position: relative;
+  isolation: isolate;
+  box-shadow: 0 2px 3px 1px hsl(var(--glow-hue) 50% 20% / 50%), inset 0 -10px 20px -10px hsla(var(--shadow-hue),10%,90%,95%);
+  border-radius: 0.66em;
+  scale: 1;
+  transition: all var(--spring-duration) var(--spring-easing);
+}
+
+.btn_navigate:hover:not(:active),
+.btn_navigate.active {
+  transition-duration: calc(var(--spring-duration)*0.5);
+  scale: 1.2;
+  box-shadow: 0 4px 8px -2px hsl(var(--glow-hue) 50% 20% / 50%), inset 0 0 0 transparent;
+}
+
+.btn_navigate:active {
+  scale: 1.1;
+  transition-duration: calc(var(--spring-duration)*0.5);
+}
+
+.shimmer {
+  position: absolute;
+  inset: -40px;
+  border-radius: inherit;
+  mask-image: conic-gradient(
+      from var(--shimmer, 0deg),
+      transparent 0%,
+      transparent 10%,
+      black 36%,
+      black 45%,
+      transparent 50%,
+      transparent 60%,
+      black 85%,
+      black 95%,
+      transparent 100%
+  );
+  mask-size: cover;
+  mix-blend-mode: plus-lighter;
+  animation: shimmer 1s linear infinite both;
+}
+
+.btn_navigate:hover .shimmer::before,
+.btn_navigate:hover .shimmer::after,
+.btn_navigate.active .shimmer::before,
+.btn_navigate.active .shimmer::after {
+  opacity: 1;
+  animation: shine 1.2s ease-in 1 forwards;
+}
+ 
+.shimmer::before,
+.shimmer::after {
+  transition: all 0.5s ease;
+  opacity: 0;
+  content: "";
+  border-radius: inherit;
+  position: absolute;
+  mix-blend-mode: color;
+  inset: 40px;
+  pointer-events: none;
+}
+
+.shimmer::before {
+  box-shadow: 0 0 3px 2px hsl(var(--glow-hue) 20% 95%),
+      0 0 7px 4px hsl(var(--glow-hue) 20% 80%),
+      0 0 13px 4px hsl(var(--glow-hue) 50% 70%),
+      0 0 25px 5px hsl(var(--glow-hue) 100% 70%);
+  z-index: -1;
+}
+
+.shimmer::after {
+  box-shadow: inset 0 0 0 1px hsl(var(--glow-hue) 70% 95%),
+      inset 0 0 2px 1px hsl(var(--glow-hue) 100% 80%),
+      inset 0 0 5px 2px hsl(var(--glow-hue) 100% 70%);
+  z-index: 2;
+}
+
+.btn_navigate .text {
+  color: transparent;
+  background-clip: text;
+  background-color: var(--bg);
+  background-image: linear-gradient(120deg, transparent, hsla(var(--glow-hue),100%,80%,0.66) 40%, hsla(var(--glow-hue),100%,90%,.9) 50%, transparent 52%);
+  background-repeat: no-repeat;
+  background-position: center 200%;
+}
+
+.btn_navigate:hover .text,
+.btn_navigate.active .text {
+  animation: text .66s ease-in 1 both;
+}
+
+/*Тест*/
+
+/* Модальный (фон) */
+.modal {
+  display: none;
+  /* Скрыто по умолчанию */
+  position: fixed;
+  /* Оставаться на месте */
+  z-index: 1;
+  /* Сидеть на вершине */
+  padding-top: 100px;
+  /* Расположение коробки */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Полная ширина */
+  height: 100%;
+  /* Полная высота */
+  overflow: auto;
+  /* Включите прокрутку, если это необходимо */
+  background-color: rgb(0, 0, 0);
+  /* Цвет запасной вариант  */
+  background-color: rgba(0, 0, 0, 0.4);
+  /*Черный с непрозрачностью */
+}
+
+/* Модальное содержание */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Добавить анимацию */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+/* Кнопка закрытия */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: rgb(204, 34, 208);;
+  color: white;
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: rgb(204, 34, 208);;
+  color: white;
+}
+
+.text_go marquee {
+  display: flex;
+  align-items: center;
+
+  height: 50px;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  background-color: #b045d1;
+}
+
+.container_main {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+
+  width: 100%;
+  height: 1080px;
+  background-image: url("../img/ground.jpg");
+  background-repeat: no-repeat;
+}
+
+.neon_marth {
+  text-align: center;
+  font-size: 7em;
+  margin-bottom: 39px;
+  margin-top: 0;
+  line-height: 1;
+  text-decoration: none;
+  color: #fff;
+}
+
+.neon_marth:nth-child(1) {
+  font-family: Monoton;
+  animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff1177,
+      0 0 70px #ff1177, 0 0 80px #ff1177, 0 0 100px #ff1177, 0 0 150px #ff1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff1177,
+      0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
+  }
+}
+
+@media (max-width: 650px) {
+  p {
+    font-size: 3.5em;
+  }
+}
+
+.slider-container {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 35%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.container_supruse {
+  width: 100%;
+  height: 300px;
+
+  background-color: #d14568;
+}
+
+/* Стиль кнопка, которая используется для открытия и закрытия складного содержимого */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Добавить цвет фона для кнопки, если она нажата (добавить класс .active с JS), а при наведении на него курсора мыши (hover) */
+.active,
+.collapsible:hover {
+  background-color: #ccc;
+}
+
+.text_collapsible {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Стиль складного содержимого. Примечание: скрыто по умолчанию */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.collapsible:after {
+  content: '\02795';
+  /* Символ юникода для знака "плюс" (+) */
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: '\2796';
+  /* Символ юникода для знака "минус" (-) */
+}
+
+.text_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.neon_text {
+  font-size:  45px;
+  font-family: 'Shadows Into Light', cursive;
+  color: #fff;
+  -webkit-text-stroke: 1px rgba(255, 0, 174, .6);
+  text-shadow: 
+     0 0 5px #fc45de,
+        0 0 10px #fc45de,
+        0 0 20px #fc45de,
+        0 0 40px #fc45de,
+        0 0 80px #fc45de,
+        0 0 90px #fc45de,
+        0 0 100px #fc45de,
+        0 0 150px #fc45de;
+  
+  margin-bottom: 5px;
+  margin-left: 350px;
+}
+
+.text{
+  font-family: Pacifico;
+  font-size: 5rem;
+  width: 80%;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 3px 12px #6280f7, 
+               0 -3px 12px #6280f7, 
+               -3px 0px 12px #6280f7, 
+               3px 0px 12px #6280f7;
+  animation: blink 3s linear infinite;
+}
+
+@keyframes blink{
+  0%,
+  48%,
+  54%{
+    color: #464646;
+    text-shadow: none;
+  }
+  50%,
+  52%{
+    color: #e8e8e8;
+    text-shadow: 0 3px 12px #6280f7, 
+                 0 -3px 12px #6280f7, 
+                 -3px 0px 12px #6280f7, 
+                 3px 0px 12px #6280f7;
+  } 
+  56%{
+      color: #fff;
+      text-shadow: 0 3px 20px #8098f8, 
+                   0 -3px 20px #8098f8, 
+                   -3px 0px 20px #8098f8, 
+                   3px 0px 20px #8098f8;
+  }
+    
+}
+
+.carousel {
+  position: relative;
+  z-index: 1;
+  height: 600px;
+  overflow: hidden;
+  pointer-events: none;
+  background-image: url(background.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 16px 20px rgba(0,0,0,0.2);
+  line-height: 1.3;
+  margin: 20px 0;
+}
+.carousel-item {
+  --width: clamp(150px, 30vw, 300px);
+  --height: clamp(200px, 40vw, 400px);
+  --x: calc(var(--active) * 80% * var(--items));
+  --y: calc(var(--active) * 20% * var(--items));
+  --rot: calc(var(--active) * 120deg);
+  --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
+  overflow: hidden;
+  position: absolute;
+  z-index: var(--zIndex);
+  width: var(--width);
+  height: var(--height);
+  margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  user-select: none;
+  transform-origin: 0% 100%;
+  box-shadow: 0 10px 50px 10px rgba(0, 0, 0, 0.5);
+  background: black;
+  pointer-events: all;
+  transform: translate(var(--x), var(--y)) rotate(var(--rot));
+  transition: transform 0.8s cubic-bezier(0, 0.02, 0, 1);
+}
+.carousel-item .carousel-box {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+  opacity: var(--opacity);
+  font-family: 'Roboto', sans-serif;
+}
+.carousel-item .carousel-box:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5));
+}
+.carousel-item .carousel-title {
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+  bottom: 18px;
+  left: 20px;
+  transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+  font-size: clamp(16px, 3vw, 20px);
+  text-shadow: 0 0 12px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.7); 
+}
+.carousel-item .num {
+  position: absolute;
+  z-index: 1;
+  color: #BFE2FF;
+  top: 10px;
+  left: 20px;
+  transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+  font-size: clamp(20px, 10vw, 50px);
+  font-weight: bold;
+  text-shadow: 0 0 12px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.7); 
+}
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+
+.footer {
+  width: 100%;
+  height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #d14568;
+
+  color: white;
+  font-weight: 700;
+}
+
+.point_start {
+
+  color: white;
+  font-weight: 700;
+
+  font-size: 32px;
+}
+
+@media (max-width: 360px), (max-width: 375px), (max-width: 390px), (max-width: 412px), (max-width: 414px), (max-width: 540px) {
+
+  .btn_navigate {
+    font-size: 14px;
+  }
+
+  .neon_marth {
+    font-size: 38px;
+  }
+
+  .slider-container {
+    width: 100%;
+  }
+
+  .slider img {
+    width: 350px;
+    margin-left: 10px;
+    margin-right: 0;
+    padding: 0;
+  }
+
+  .text_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .neon_text {
+    margin: 0;
+  }
+}
