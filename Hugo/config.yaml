@@ -1,0 +1,51 @@
+baseurl: /
+languageCode: en-us
+title: Developer php site   
+theme: hugo-whisper-theme-master
+googleAnalytics: ''
+disqusShortname: ''
+ignoreFiles:
+  - \.Rmd$
+  - \.Rmarkdown$
+  - _cache$
+  - \.knit\.md$
+  - \.utf8\.md$
+permalinks:
+  post: /:year/:month/:day/:slug/
+menu:
+  main:
+    - name: Home
+      url: /
+    - name: FAQ
+      url: /develop/about/
+    - name: PHP
+      url: https://www.php.net/
+    - name: Laravel
+      url: https://laravel.com/
+    - name: Symfony
+      url: https://symfony.com/
+    - name: Yii2
+      url: https://www.yiiframework.com/
+    - name: Codeigniter
+      url: https://www.codeigniter.com/
+params:
+  MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
+  MathJaxVersion: 2.7.5
+  description: A website built through Hugo and blogdown.
+  favicon: /logo.ico/
+  highlightjsCDN: //cdnjs.cloudflare.com/ajax/libs
+  highlightjsLang:
+    - r
+    - yaml
+  highlightjsTheme: github
+  highlightjsVersion: 9.12.0
+  logo:
+    alt: Developer
+    height: 50
+    url: /logo1.png/
+    width: 50
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      unsafe: yes
