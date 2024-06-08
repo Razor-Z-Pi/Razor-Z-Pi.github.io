@@ -145,4 +145,16 @@ h1 {
 .buttons button:hover {
     background-color: #bac383;
 }
-  
+
+
+@media (max-width: 500px) {
+    .container {
+        width: 100%;
+        height:100%;
+        margin-top: 150px;
+    }
+
+    .item {
+        top:20%;
+    }
+}
