@@ -411,6 +411,7 @@ h1 {
 }
 .front .pageNumber{
 	right:0.75em;
+    font-size: 16px;
 }
 .back .pageNumber{
 	left:0.75em;
@@ -454,4 +455,40 @@ body[onload]{
 
 .cd__intro{
 	background-color:#c0e;
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    a {
+        font-size: 16px;
+    }
+
+    .container {
+        width: 100%;
+        height: 500px;
+    
+        border-radius: 50px;
+    }
+
+    .bix-fon {
+        width: 100%;
+    }
+
+    .bock {
+        width: 80%;
+        height: 500px;
+    }
+
+    .flipbook {
+        width: 300px;
+
+        font-size: 10px;
+    }
+
+    .text-small {
+        font-size: 10px;
+    }
 }
