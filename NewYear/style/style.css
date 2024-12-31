@@ -1,0 +1,145 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/1.jpg'); /* Начальный фон */
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+}
+
+.container {
+    position: absolute;
+
+    left: 35%;
+    top: 10%;
+
+    z-index: 999;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: grey;
+    opacity: 0.8;
+
+    border-radius: 30px;
+}
+
+.img_new_year {
+    width: 550px;
+    height: 550px;
+
+    border-radius: 20%;
+    opacity: 0.8;
+}
+
+.sign_word {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 50px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #BFE2FF, 0 0 0.5em #BFE2FF, 0 0 0.1em #BFE2FF;
+    text-align: center;
+  }
+
+ .sign_word span {
+    animation: neon-4 linear infinite 4s;
+}
+
+@keyframes neon-4 {
+    78% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+    79%{
+        color: red;
+    }
+    80% {
+        text-shadow: none;
+    }
+    81% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+    82% {
+        color: red;
+        text-shadow: none;
+    }
+    83% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+    92% {
+        color: red;
+        text-shadow: none;
+    }
+    92.5% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+}
+
+.text_happy {
+    font-size: 100%;
+    font-weight: 700;
+    font-family: 'Niconne', cursive;
+    color: white;  
+    text-align: center;
+}
+
+@media (max-width: 950px) {
+    .container {
+        left: 25%;
+        top: 5%;
+    }
+
+    .img_new_year {
+        width: 320px;
+        height: 320px;   
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        left: 15%;
+        top: 5%;
+    }
+}
+
+@media (max-width: 680px) {
+    .container {
+        left: 8%;
+        top: 5%;
+    }
+
+    .img_new_year {
+        width: 320px;
+        height: 320px;   
+    }
+}
