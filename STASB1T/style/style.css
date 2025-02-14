@@ -489,7 +489,7 @@ svg {
   width: 100%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .text_super {
     font-size: 45px;
   }
