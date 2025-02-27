@@ -21,6 +21,10 @@ img {
     width: 100%;
 }
 
+.hidden_span {
+  visibility: hidden;
+}
+
 .text_super {
   text-transform: uppercase;
   top:100px;
