@@ -11,4 +11,4 @@ document.addEventListener('DOMContentLoaded', function () {
     closeBTN.addEventListener('click', function () {
         audio.pause();
     });
-  });
+});
