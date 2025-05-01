@@ -92,7 +92,7 @@
  const songTitle = document.querySelector('.song-title');
  
  const songs = [
-     { title: "Fack Love", artist: "BTS", src: "./music/FackLove.mp3" },
+     { title: "Idol", artist: "BTS", src: "./music/Idol.mp3" },
      { title: "Butter", artist: "BTS", src: "./music/Butter.mp3" },
      { title: "Dynamite", artist: "BTS", src: "./music/Dynamite.mp3" }
  ];
