@@ -17,26 +17,41 @@ const compliments = [
     "Твоя любовь - самое дорогое, что у меня есть!"
 ];
 
+let currentComplimentIndex = 0;
+
 // Показ случайного комплимента
 document.getElementById('showCompliment').addEventListener('click', function() {
     const complimentContainer = document.getElementById('complimentContainer');
-    complimentContainer.innerHTML = '';
     
-    const randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
+    // Удаляем предыдущий комплимент
+    while (complimentContainer.firstChild) {
+        complimentContainer.removeChild(complimentContainer.firstChild);
+    }
+
+    // Создаем элемент для нового комплимента
     const complimentElement = document.createElement('div');
     complimentElement.className = 'compliment';
-    complimentElement.textContent = randomCompliment;
-    
+    complimentElement.textContent = compliments[currentComplimentIndex];
+
     complimentContainer.appendChild(complimentElement);
-    
+
     // Анимация появления
     setTimeout(() => {
-        complimentElement.style.opacity = '1';
-        complimentElement.style.transform = 'translateY(0)';
+        complimentElement.classList.add('visible');
     }, 10);
-    
+
     // Создаем сердечки вокруг комплимента
     createHearts(5, complimentElement.getBoundingClientRect());
+
+    // Переходим к следующему комплименту
+    currentComplimentIndex = (currentComplimentIndex + 1) % compliments.length;
+
+    // Если дошли до конца, меняем текст кнопки
+    if (currentComplimentIndex === 0) {
+        this.textContent = "Ещё раз с начала!";
+    } else {
+        this.textContent = "Следующий комплимент";
+    }
 });
 
 // Показ сообщения о любви
