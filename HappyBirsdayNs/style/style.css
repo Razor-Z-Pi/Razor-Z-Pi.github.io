@@ -1,0 +1,305 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1a2a6c, #2a3a7c, #3a4a8c);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to right, #ff9a00, #ffd700, #ff9a00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 3s infinite;
+}
+
+.birthday-person {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: slideInFromTop 1s ease-out 0.5s forwards;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.photo-section {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1s forwards;
+}
+
+.photo-frame {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border: 5px solid rgba(255, 215, 0, 0.7);
+    position: relative;
+    transform: rotate(-5deg);
+    transition: transform 0.5s;
+}
+
+.photo-frame:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #2a3a7c, #3a4a8c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #ffd700;
+}
+
+.message-section {
+    flex: 2;
+    min-width: 300px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.2s forwards;
+
+    text-align: center;
+}
+
+.message {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.wishes {
+    background: linear-gradient(45deg, #ff9a00, #ffd700);
+    color: #1a2a6c;
+    padding: 25px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideUp 1s ease-out 1.5s forwards;
+}
+
+.signature {
+    text-align: center;
+    font-style: italic;
+    font-size: 1.3rem;
+    margin-top: 40px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 2s forwards;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromTop {
+    from { 
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Декоративные элементы */
+.floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    color: rgba(255, 215, 0, 0.7);
+    font-size: 24px;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+.balloon {
+    position: absolute;
+    width: 60px;
+    height: 70px;
+    border-radius: 50%;
+    animation: balloonFloat 8s ease-in-out infinite;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.balloon:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    background: inherit;
+    bottom: -15px;
+    left: 25px;
+    border-radius: 0 0 5px 5px;
+}
+
+.balloon:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.7);
+    bottom: -65px;
+    left: 29px;
+}
+
+@keyframes balloonFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-20px) rotate(3deg);
+    }
+    66% {
+        transform: translateY(-10px) rotate(-3deg);
+    }
+}
+
+.confetti {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    animation: confettiFall 5s linear infinite;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+    
+    .birthday-person {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .photo-frame {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .birthday-person {
+        font-size: 1.5rem;
+    }
+    
+    .photo-frame {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .message, .wishes {
+        padding: 20px;
+    }
+}
