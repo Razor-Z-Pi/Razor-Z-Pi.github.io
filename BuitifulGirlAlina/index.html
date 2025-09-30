@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тёмная Принцесса</title>
+    <link rel="stylesheet" href="./style/normalize.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <!-- Анимированный фон с летучими мышами -->
+    <div class="bg-animation" id="bats-container"></div>
+
+    <!-- Герой секция -->
+    <section class="section hero">
+        <div class="scroll">
+            <h1 class="magic-text">Тёмная Принцесса Алина</h1>
+            <p>Там, где тьма встречается с красотой...</p>
+            <button class="spell-button" id="spellButton">Нажми на меня:)</button>
+        </div>
+    </section>
+
+    <!-- Галерея фотографий -->
+    <section class="section">
+        <div class="gallery-container">
+            <h2 class="magic-text gothic-border" style="text-align: center; margin-bottom: 40px;">
+                Магия твоей красоты
+            </h2>
+            <div class="gallery" id="photo-gallery">
+                <!-- Фотографии будут добавлены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция с цитатами -->
+    <section class="section">
+        <div class="scroll">
+            <h2 class="magic-text" style="text-align: center; margin-bottom: 30px;">Слова для прекрасной</h2>
+            <div id="quotes-container">
+                <!-- Цитаты будут меняться -->
+            </div>
+            <button class="spell-button" id="quoteButton">Следующее признание</button>
+        </div>
+    </section>
+
+    <!-- Модальное окно для фото -->
+    <div class="modal" id="imageModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="./script/app.js"></script>
+</body>
+</html>
