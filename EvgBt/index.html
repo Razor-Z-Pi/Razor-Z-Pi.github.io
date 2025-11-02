@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для прекрасной Жени</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffd1dc);
+            color: #5a3d5c;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #8b4789;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .heart {
+            color: #ff6b6b;
+            display: inline-block;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+            animation: fadeIn 2s ease;
+        }
+
+        .poem-section {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: slideInUp 1.5s ease;
+        }
+
+        .poem {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .poem-line {
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .poem-line:nth-child(1) { animation-delay: 0.5s; }
+        .poem-line:nth-child(2) { animation-delay: 1s; }
+        .poem-line:nth-child(3) { animation-delay: 1.5s; }
+        .poem-line:nth-child(4) { animation-delay: 2s; }
+        .poem-line:nth-child(5) { animation-delay: 2.5s; }
+        .poem-line:nth-child(6) { animation-delay: 3s; }
+
+        .flowers {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .flower {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .flower:nth-child(2) { animation-delay: 1s; }
+        .flower:nth-child(3) { animation-delay: 2s; }
+        .flower:nth-child(4) { animation-delay: 3s; }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+            height: 250px;
+            background: #f8f1f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #8b4789;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 2s ease;
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .intro {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+            
+            .poem-section {
+                padding: 20px;
+                margin: 20px 0;
+            }
+            
+            .poem {
+                font-size: 1.1rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .gallery-item {
+                height: 150px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .poem {
+                font-size: 1rem;
+            }
+            
+            .flower {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Для прекрасной <span class="heart">Жени</span></h1>
+            <p class="intro">Этот сайт создан специально для тебя, чтобы поднять настроение и напомнить, какая ты замечательная!</p>
+        </header>
+
+        <section class="poem-section">
+            <div class="poem">
+                <div class="poem-line">Ты — как утренняя роса,</div>
+                <div class="poem-line">Что искрится в лучах зари,</div>
+                <div class="poem-line">Ты — как нежная краса,</div>
+                <div class="poem-line">Что способна мир озарить.</div>
+                <div class="poem-line">В твоих глазах — сиянье дня,</div>
+                <div class="poem-line">И в сердце — вечная весна!</div>
+            </div>
+        </section>
+
+        <div class="flowers">
+            <div class="flower">🌹</div>
+            <div class="flower">🌷</div>
+            <div class="flower">🌸</div>
+            <div class="flower">💐</div>
+        </div>
+
+        <section class="gallery">
+            <div class="gallery-item">Твоя улыбка</div>
+            <div class="gallery-item">Твои глаза</div>
+            <div class="gallery-item">Твоя доброта</div>
+            <div class="gallery-item">Твоя мудрость</div>
+            <div class="gallery-item">Твоя нежность</div>
+            <div class="gallery-item">Твоя сила</div>
+        </section>
+
+        <footer>
+            <p>С любовью и нежностью ❤️</p>
+            <p>Твой сайт, созданный специально для тебя</p>
+        </footer>
+    </div>
+
+    <script>
+        // Добавляем дополнительные анимации при прокрутке
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            // Наблюдаем за элементами, которые должны анимироваться при прокрутке
+            const animatedElements = document.querySelectorAll('.poem-section, .flowers, .gallery');
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Добавляем случайные сердечки при клике
+            document.body.addEventListener('click', function(e) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'fixed';
+                heart.style.left = e.clientX + 'px';
+                heart.style.top = e.clientY + 'px';
+                heart.style.fontSize = (20 + Math.random() * 20) + 'px';
+                heart.style.opacity = '1';
+                heart.style.pointerEvents = 'none';
+                heart.style.zIndex = '9999';
+                heart.style.transition = 'all 1s ease';
+                
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.style.opacity = '0';
+                    heart.style.transform = `translateY(-${100 + Math.random() * 100}px) translateX(${Math.random() * 100 - 50}px)`;
+                }, 10);
+                
+                setTimeout(() => {
+                    document.body.removeChild(heart);
+                }, 1100);
+            });
+        });
+    </script>
+</body>
+</html>
