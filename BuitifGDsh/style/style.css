@@ -13,7 +13,6 @@ body {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2a 50%, #2d0a3a 100%);
     color: #e0d0ff;
     font-family: 'Cinzel', serif;
-    overflow-x: hidden;
     min-height: 100vh;
     position: relative;
 }
