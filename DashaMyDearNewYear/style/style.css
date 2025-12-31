@@ -540,6 +540,7 @@ footer {
     opacity: 0;
     z-index: 3;
     animation: floatAround 20s linear infinite;
+    visibility: hidden;
 }
 
 @keyframes floatAround {
