@@ -1,145 +1,296 @@
 *,
 *::after,
 *::before {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #c62828;
+    --primary-green: #2e7d32;
+    --primary-gold: #ffd700;
+    --light-gold: #fff9c4;
+    --snow-white: #f8f9fa;
 }
 
 html,
 body {
-    width: 100%;
-    height: 100%;
-
-    margin: 0;
-    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #0d2b2b 0%, #1a1a2e 100%);
+    color: var(--snow-white);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
 }
 
-a {
-    text-decoration: none;
-}
-
-img {
-    width: 100%;
-}
-
-.background {
-    position: absolute;
+/* Снегопад */
+.snowflakes {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/1.jpg'); /* Начальный фон */
-    background-size: cover;
-    background-position: center;
-    transition: background-image 1s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
 }
 
-.container {
+.snowflake {
     position: absolute;
-
-    left: 35%;
-    top: 10%;
-
-    z-index: 999;
-
-    margin: 0;
-    padding: 0;
-
-    background-color: grey;
+    top: -10px;
+    color: white;
+    font-size: 1.2em;
     opacity: 0.8;
-
-    border-radius: 30px;
+    animation: snowfall linear infinite;
 }
 
-.img_new_year {
-    width: 550px;
-    height: 550px;
-
-    border-radius: 20%;
-    opacity: 0.8;
+@keyframes snowfall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
 }
 
-.sign_word {
-    font-size: 40px;
-    font-weight: bold;
-    line-height: 50px;
-    color: #FFF;
-    font-family: 'Roboto', sans-serif;
-    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #BFE2FF, 0 0 0.5em #BFE2FF, 0 0 0.1em #BFE2FF;
+/* Основной контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Шапка */
+header {
     text-align: center;
-  }
-
- .sign_word span {
-    animation: neon-4 linear infinite 4s;
+    padding: 30px 0;
+    position: relative;
 }
 
-@keyframes neon-4 {
-    78% {
-        color: inherit;
-        text-shadow: inherit;
-    }
-    79%{
-        color: red;
-    }
-    80% {
-        text-shadow: none;
-    }
-    81% {
-        color: inherit;
-        text-shadow: inherit;
-    }
-    82% {
-        color: red;
-        text-shadow: none;
-    }
-    83% {
-        color: inherit;
-        text-shadow: inherit;
-    }
-    92% {
-        color: red;
-        text-shadow: none;
-    }
-    92.5% {
-        color: inherit;
-        text-shadow: inherit;
-    }
-}
-
-.text_happy {
-    font-size: 100%;
+.header-title {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: var(--primary-gold);
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
     font-weight: 700;
-    font-family: 'Niconne', cursive;
-    color: white;  
+    letter-spacing: 2px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+    }
+
+    to {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.9), 0 0 30px rgba(255, 215, 0, 0.5);
+    }
+}
+
+.header-subtitle {
+    font-size: 1.4rem;
+    color: var(--light-gold);
+    font-family: 'Marck Script', cursive;
+    margin-bottom: 20px;
+}
+
+/* Главное поздравление */
+.main-greeting {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.greeting-text {
+    font-size: 1.3rem;
+    line-height: 1.6;
     text-align: center;
+    margin-bottom: 20px;
 }
 
-@media (max-width: 950px) {
-    .container {
-        left: 25%;
-        top: 5%;
+.greeting-author {
+    text-align: right;
+    font-style: italic;
+    color: var(--light-gold);
+    font-size: 1.1rem;
+}
+
+/* Открытки */
+.cards-section {
+    margin: 50px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: var(--primary-gold);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--primary-gold);
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.footer-text {
+    margin-bottom: 10px;
+}
+
+/* Новогодние украшения */
+.decoration {
+    position: absolute;
+    z-index: 1;
+}
+
+.tree {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    font-size: 3rem;
+    color: var(--primary-green);
+    z-index: 1;
+    animation: swing 5s ease-in-out infinite alternate;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(-5deg);
     }
 
-    .img_new_year {
-        width: 320px;
-        height: 320px;   
+    100% {
+        transform: rotate(5deg);
     }
 }
 
-@media (max-width: 800px) {
-    .container {
-        left: 15%;
-        top: 5%;
+.star {
+    position: fixed;
+    top: 50px;
+    left: 5%;
+    font-size: 2rem;
+    color: var(--primary-gold);
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.1);
     }
 }
 
-@media (max-width: 680px) {
-    .container {
-        left: 8%;
-        top: 5%;
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 2rem;
     }
 
-    .img_new_year {
-        width: 320px;
-        height: 320px;   
+    .header-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .greeting-text {
+        font-size: 1.1rem;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .tree,
+    .star {
+        display: none;
+    }
+
+    .main-greeting {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    .header-title {
+        font-size: 1.7rem;
     }
 }

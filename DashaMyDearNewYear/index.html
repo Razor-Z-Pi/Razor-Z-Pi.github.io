@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С наступающим Новым годом, солнышко)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./style/normalize.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <!-- Снегопад и сердечки -->
+    <div class="snowflakes" id="snowflakes"></div>
+    <div class="hearts" id="hearts"></div>
+    
+    <!-- Всплывающие фото -->
+    <div class="floating-photos-container"></div>
+    
+    <!-- Конфетти -->
+    <div class="confetti-container"></div>
+    
+    <div class="container">
+        <!-- Шапка -->
+        <header>
+            <h1 class="header-title">С наступающим Новым годом, солнышко)</h1>
+            <p class="header-subtitle">Этот год будет особенным, потому что ты в нём <span class="header-love">&#128150;</span></p>
+        </header>
+        
+        <!-- Главное поздравление -->
+        <section class="main-greeting">
+            <p class="greeting-text">
+                <span> Дорогая</span>, в этот волшебный праздник я хочу пожелать тебе самого светлого, 
+                самого радостного и самого сказочного года в твоей жизни!<br><br>
+                
+                Пусть каждый день нового года будет наполнен <span>улыбками</span>, 
+                приятными сюрпризами и, конечно же, любовью:)<br><br>
+
+                С наступающим, солнышко! Пусть этот год станет твоей личной сказкой с счастливым продолжением)<br>
+                Хочу, чтобы рядом были только добрые люди, чтобы дела спорились, чтобы сердце пело, а глаза блестели&#10024;<br>
+                Пусть каждый день приносит хоть одну причину сказать «жизнь прекрасна», а ты остаёшься такой же невероятной&#128151;
+                
+            </p>
+            <p class="greeting-signature">С бесконечной любовью, от Пашки:)</p>
+        </section>
+        
+        <!-- Слайд-шоу -->
+        <section class="slideshow-section">
+            <h2 class="slideshow-title">Волшебные моменты</h2>
+            
+            <!-- Кнопка управления музыкой -->
+            <div class="music-controls" id="musicControl">
+                <i class="fas fa-music music-icon" id="musicIcon"></i>
+            </div>
+            
+            <!-- Слайдер -->
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <!-- Слайды будут добавлены через JavaScript -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            
+            <!-- Аудио для фоновой музыки -->
+            <audio id="backgroundMusic" loop>
+                <source src="./slowme_my_curse.mp3" type="audio/mpeg">
+            </audio>
+        </section>
+        
+        <!-- Фотографии с пожеланиями -->
+        <section class="photos-section">
+            <h2 class="photos-title">Мои пожелания для тебя</h2>
+            <div class="photos-grid" id="photosGrid">
+                <!-- Фото с пожеланиями будут добавлены через JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Таймер до Нового года -->
+        <section class="countdown-section">
+            <h2 class="countdown-title">До Нового года осталось:</h2>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">0</div>
+                    <div class="countdown-label">дней</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">0</div>
+                    <div class="countdown-label">часов</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">0</div>
+                    <div class="countdown-label">минут</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">0</div>
+                    <div class="countdown-label">секунд</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Футер -->
+        <footer>
+            <p class="footer-text">Создано с <span class="footer-heart">&#128150;</span> для самой прекрасной девушки на свете</p>
+            <p>Новогоднее чудо. Все права на любовь и праздник защищены!</p>
+            
+            <div class="secret-message" id="secretMessage">
+                Наведи курсор на эту надпись, чтобы увидеть секретное послание...
+                <div class="hidden-message" style="display: none; margin-top: 10px; color: var(--light-pink);">
+                    Я люблю тебя! Ты - самое большое чудо! 
+                    Пусть этот год будет таким же прекрасным, как ты!&#128150;
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    
+    <script src="./js/app.js"></script>
+</body>
+</html>

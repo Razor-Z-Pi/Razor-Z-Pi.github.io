@@ -1,34 +1,56 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>С новым годом!!!</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С наступающим новым годом!!!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="./style/normalize.css">
-        <link rel="stylesheet" href="./style/style.css">
-    </head>
 
-    <body>
-        <div class="background"></div>
-
-        <div class="container">
-            <img class="img_new_year" src="./6.gif" alt="New Year">
-            <div class="sign_word"><span>C</span> <span>новым</span> <span>годом!)</span></div>
-            <p class="text_happy">
-                С Новым годом поздравляем,<br>
-                Счастья в жизни Вам желаем, <br>
-                Много добрых пожеланий, <br>
-                Исполненья всех мечтаний! <br>
-
-                Самых ярких впечатлений, <br>
-                Самых сказочных мгновений. <br>
-                Пусть Вам этот год несет <br>
-                Много радостных хлопот! 
+    <link rel="stylesheet" href="./style/normalize.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <!-- Снегопад -->
+    <div class="snowflakes" id="snowflakes"></div>
+    
+    <!-- Новогодние украшения -->
+    <div class="tree decoration">&#127876;</div>
+    <div class="star decoration">&#11088;</div>
+    
+    <div class="container">
+        <!-- Шапка -->
+        <header>
+            <h1 class="header-title">С наступающим Новым 2026 Годом!</h1>
+            <p class="header-subtitle">Пусть следующий год принесет счастье, здоровье и удачу!</p>
+        </header>
+        
+        <!-- Основное поздравление -->
+        <section class="main-greeting">
+            <p class="greeting-text">
+                С наступающим Новым годом! 
+                Желаю, чтобы следующий год подарил много поводов для радости и счастливых моментов. 
+                Пусть сбудутся заветные желания, пусть во всех делах вам сопутствует удача! 
+                Оставьте все невзгоды позади и в эту новогоднюю ночь поверьте в чудо, ведь когда во что-то веришь, оно обязательно сбывается!
             </p>
-        </div>
+            <p class="greeting-author">С наилучшими пожеланиями, от Пашки</p>
+        </section>
+        
+        <!-- Открытки -->
+        <section class="cards-section">
+            <h2 class="section-title">Новогодние открытки</h2>
+            <div class="cards-container" id="cardsContainer">
+            </div>
+        </section>
+        
+        <!-- Подвал -->
+        <footer>
+            <p class="footer-text">Новогодняя визитка. Все права на праздник защищены!</p>
+            <p>Создано с любовью и праздничным настроением</p>
+        </footer>
+    </div>
 
-        <script src="./js/script.js"></script>
-        <script src="./js/app.js"></script>
-    </body>
+    <script src="./script/app.js"></script>
+</body>
 </html>
