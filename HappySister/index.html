@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днём Рождения</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style/normalize.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <!-- Конфетти -->
+    <div class="confetti" id="confetti"></div>
+    
+    <!-- Плавающие элементы -->
+    <div class="floating-element cake-1">&#127874;</div>
+    <div class="floating-element cake-2">&#127856;</div>
+    <div class="floating-element gift-1">&#127873;</div>
+    <div class="floating-element gift-2">&#127881;</div>
+    
+    <div class="container">
+        <!-- Шапка -->
+        <header>
+            <h1 class="header-title">С Днём Рождения, Сестрёнка!</h1>
+            <p class="header-subtitle">Ты - самая прекрасная сестра!</p>
+            <div class="birthday-age" id="birthdayAge">Любимой сестре!</div>
+        </header>
+        
+        <!-- Главное поздравление -->
+        <section class="main-greeting">
+            <p class="greeting-text">
+                С днем рождения, сестрёнка!
+                <span>Желаю тебе исполнения самых сокровенных желаний, здоровья, вдохновения, удачи и позитива!</span>
+                Будь всегда в хорошем настроении, получай удовольствие от каждого прожитого дня:)
+                Оставайся всегда любимой, красивой и счастливой!
+            </p>
+            <p class="greeting-signature">Твой любящий брат Пашка!!!</p>
+        </section>
+        
+        <!-- Галерея фото -->
+        <section class="gallery-section">
+            <div class="gallery-grid" id="galleryGrid">
+
+            </div>
+        </section>
+        
+        <!-- Пожелания -->
+        <section class="wishes-section">
+            <h2 class="section-title">Мои пожелания для тебя</h2>
+            <div class="wishes-container">
+                <div class="wish-card">
+                    <div class="wish-icon">&#128150;</div>
+                    <h3 class="wish-title">Любви и Счастья</h3>
+                    <p class="wish-text">Пусть твое сердце всегда будет наполнено любовью и радостью!</p>
+                </div>
+                
+                <div class="wish-card">
+                    <div class="wish-icon">&#128175;</div>
+                    <h3 class="wish-title">Исполнения Желаний</h3>
+                    <p class="wish-text">Пусть все твои мечты сбываются, а планы реализуются!</p>
+                </div>
+                
+                <div class="wish-card">
+                    <div class="wish-icon">&#127800;</div>
+                    <h3 class="wish-title">Красоты и Здоровья</h3>
+                    <p class="wish-text">Цвети и сияй, будь здоровой и полной энергии!</p>
+                </div>
+                
+                <div class="wish-card">
+                    <div class="wish-icon">&#128293;</div>
+                    <h3 class="wish-title">Успехов в Делах</h3>
+                    <p class="wish-text">Пусть удача сопутствует во всех начинаниях!</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Таймер -->
+        <section class="timer-section">
+            <h2 class="timer-title">Праздник продолжается!</h2>
+            <div class="timer">
+                <div class="timer-item">
+                    <div class="timer-number" id="timerHours">24</div>
+                    <div class="timer-label">часа веселья</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-number" id="timerMinutes">60</div>
+                    <div class="timer-label">минут смеха</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-number" id="timerSeconds">60</div>
+                    <div class="timer-label">секунд радости</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Футер -->
+        <footer>
+            <p class="footer-text">Создано с <span class="footer-heart">&#128150;</span> для самой лучшей сестры на свете</p>
+            <p>Самый особенный день рождения</p>
+        </footer>
+    </div>
+
+    <!-- Модальное окно для фото -->
+    <div class="modal" id="imageModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage" src="" alt="Увеличенное фото">
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
