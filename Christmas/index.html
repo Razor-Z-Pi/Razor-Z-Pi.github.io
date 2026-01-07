@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Рождеством Христовым!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style/normalize.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <!-- Звездное небо -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Снег -->
+    <div class="snow" id="snow"></div>
+    
+    <!-- Кнопка музыки -->
+    <div class="music-btn" id="musicBtn">
+        &#127926;
+        <audio id="backgroundMusic" loop>
+            <source src="./js/music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    
+    <div class="container">
+        <!-- Заголовок -->
+        <header class="header">
+            <h1 class="christmas-title">С Рождеством Христовым!</h1>
+            <p class="subtitle">Пусть этот светлый праздник наполнит ваш дом теплом и радостью</p>
+        </header>
+        
+        <!-- Рождественские украшения -->
+        <div class="decorations">
+            <div class="decoration">&#127876;</div>
+            <div class="decoration">&#11088;</div>
+            <div class="decoration">&#128367;</div>
+            <div class="decoration">&#127873;</div>
+            <div class="decoration">&#10052;</div>
+        </div>
+        
+        <!-- Свеча -->
+        <div class="candle-container">
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+        </div>
+        
+        <!-- Поздравительная карточка -->
+        <section class="greeting-card">
+            <div class="greeting-content">
+                <p class="greeting-text">
+                    В этот светлый праздник Рождества Христова от всей души желаю вам мира, добра и благополучия! 
+                    Пусть в вашем доме всегда царят любовь, взаимопонимание и гармония.
+                </p>
+                
+                <p class="greeting-text">
+                    Пусть ангелы-хранители оберегают вас и ваших близких, а в сердце живет вера, надежда и любовь. 
+                    Желаю крепкого здоровья, душевного спокойствия и исполнения самых заветных желаний.
+                </p>
+                
+                <p class="greeting-text">
+                    Пусть новый год принесет только хорошие новости, приятные сюрпризы и радостные встречи. 
+                    Света, тепла и рождественского чуда вам и вашей семье!
+                </p>
+            </div>
+        </section>
+        
+        <!-- Пожелания -->
+        <div class="wishes">
+            <div class="wish-item">
+                <div class="wish-icon">&#128150;</div>
+                <h3 class="wish-title">Любви</h3>
+                <p>Искренней и взаимной</p>
+            </div>
+            <div class="wish-item">
+                <div class="wish-icon">&#10024;</div>
+                <h3 class="wish-title">Чудес</h3>
+                <p>Волшебства в каждый день</p>
+            </div>
+            <div class="wish-item">
+                <div class="wish-icon">&#127968;</div>
+                <h3 class="wish-title">Уюта</h3>
+                <p>Тепла домашнего очага</p>
+            </div>
+            <div class="wish-item">
+                <div class="wish-icon">&#127775;</div>
+                <h3 class="wish-title">Удачи</h3>
+                <p>Во всех начинаниях</p>
+            </div>
+        </div>
+        
+        <!-- Финальное поздравление -->
+        <section class="final-greeting">
+            <h2 class="final-text">Счастливого Рождества!</h2>
+            <p style="margin-top: 20px; position: relative; z-index: 1;">
+                Пусть этот праздник наполнит вашу жизнь светом, добром и благословением
+            </p>
+            <div class="signature">
+                С наилучшими пожеланиями в этот светлый праздник!
+            </div>
+        </section>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
