@@ -1,0 +1,365 @@
+/* Сброс стилей и шрифты */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(145deg, #f9e7e9 0%, #f5d0d6 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Анимированный фон из воздушных шаров */
+.balloon {
+    position: absolute;
+    bottom: -150px;
+    width: 80px;
+    height: 100px;
+    background: rgba(255, 215, 215, 0.4);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: floatUp 12s linear infinite;
+    z-index: 0;
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 35px;
+    width: 2px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(-5deg);
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 30px;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-120vh) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+/* Разные цвета и размеры шариков */
+.balloon:nth-child(1) {
+    left: 10%;
+    width: 70px;
+    height: 90px;
+    background: rgba(255, 223, 186, 0.5);
+    animation-duration: 14s;
+    animation-delay: 0s;
+}
+
+.balloon:nth-child(2) {
+    left: 30%;
+    width: 100px;
+    height: 130px;
+    background: rgba(209, 231, 255, 0.5);
+    animation-duration: 18s;
+    animation-delay: 2s;
+}
+
+.balloon:nth-child(3) {
+    left: 50%;
+    width: 60px;
+    height: 80px;
+    background: rgba(255, 204, 204, 0.5);
+    animation-duration: 12s;
+    animation-delay: 1s;
+}
+
+.balloon:nth-child(4) {
+    left: 70%;
+    width: 85px;
+    height: 110px;
+    background: rgba(221, 204, 255, 0.5);
+    animation-duration: 16s;
+    animation-delay: 3s;
+}
+
+.balloon:nth-child(5) {
+    left: 90%;
+    width: 75px;
+    height: 95px;
+    background: rgba(255, 233, 199, 0.5);
+    animation-duration: 15s;
+    animation-delay: 0.5s;
+}
+
+.card {
+    max-width: 900px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 40px 30px;
+    box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(255, 255, 255, 0.5) inset;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    position: relative;
+    z-index: 10;
+    animation: appear 1s ease-out;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #b34045, #e57373);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    animation: sparkle 2s infinite;
+    text-align: center;
+    line-height: 1.2;
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        text-shadow: 2px 2px 15px #ffb6c1, 0 0 20px #fff;
+    }
+
+    50% {
+        text-shadow: 4px 4px 25px #ff69b4, 0 0 40px #ffe4e1;
+    }
+}
+
+.subtitle {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    font-weight: 300;
+    color: #4a4a4a;
+    border-bottom: 2px dashed #e57373;
+    padding-bottom: 15px;
+    display: inline-block;
+    opacity: 0;
+    animation: slideIn 0.8s forwards;
+    animation-delay: 0.3s;
+}
+
+.message {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    line-height: 1.8;
+    color: #333;
+    text-align: center;
+    max-width: 600px;
+    background: rgba(255, 250, 240, 0.5);
+    padding: 25px;
+    border-radius: 40px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideIn 0.8s forwards;
+    animation-delay: 0.5s;
+}
+
+.message p {
+    margin-bottom: 15px;
+}
+
+.message p:last-child {
+    margin-bottom: 0;
+}
+
+.message i {
+    color: #e57373;
+    font-style: italic;
+}
+
+.photo-frame {
+    width: min(300px, 70%);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    padding: 10px;
+    background: linear-gradient(45deg, #ffb6c1, #ffdab9);
+    box-shadow: 0 20px 30px -10px rgba(229, 115, 115, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: float 4s ease-in-out infinite;
+    opacity: 0;
+    animation: float 4s ease-in-out infinite, appear 0.8s forwards;
+    animation-delay: 0.7s, 0s;
+}
+
+.photo-frame:hover {
+    transform: scale(1.03) rotate(2deg);
+    box-shadow: 0 30px 40px -10px #e57373;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid white;
+    display: block;
+}
+
+/* Украшение (цветочки) */
+.flower {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.3;
+    animation: rotateFlower 10s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rotateFlower {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.flower1 {
+    top: 20px;
+    left: 20px;
+    font-size: 40px;
+    opacity: 0.4;
+}
+
+.flower2 {
+    bottom: 20px;
+    right: 20px;
+    font-size: 50px;
+    opacity: 0.4;
+    animation-direction: reverse;
+}
+
+.flower3 {
+    top: 50px;
+    right: 50px;
+    font-size: 30px;
+    opacity: 0.3;
+}
+
+/* Кнопка с сюрпризом */
+.surprise-btn {
+    background: linear-gradient(145deg, #e57373, #d32f2f);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 15px 40px;
+    border-radius: 60px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(211, 47, 47, 0.4);
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin-top: 20px;
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+.surprise-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(211, 47, 47, 0.6);
+    background: linear-gradient(145deg, #ef5350, #c62828);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* Анимация для появления элементов */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .card {
+        padding: 25px 20px;
+        border-radius: 30px;
+    }
+
+    .message {
+        padding: 20px;
+    }
+
+    .photo-frame {
+        width: 60%;
+    }
+
+    .flower1,
+    .flower2,
+    .flower3 {
+        font-size: 30px;
+    }
+}
