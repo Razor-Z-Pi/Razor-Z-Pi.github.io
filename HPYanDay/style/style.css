@@ -1,0 +1,453 @@
+/* Сброс и базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(145deg, #fbc7d1 0%, #f8e0e6 40%, #ffe9f0 100%);
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Анимированные фоновые элементы (звездочки, сердечки) */
+.floating-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.float-item {
+    position: absolute;
+    opacity: 0.5;
+    animation: floatAround 18s infinite ease-in-out;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    user-select: none;
+}
+
+@keyframes floatAround {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(20px, -30px) rotate(12deg);
+    }
+
+    66% {
+        transform: translate(-15px, 20px) rotate(-8deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+/* Основная карточка */
+.card {
+    position: relative;
+    z-index: 10;
+    max-width: 700px;
+    width: 100%;
+    background: rgba(255, 250, 245, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 56px 24px 56px 24px;
+    box-shadow: 0 25px 50px -8px rgba(210, 80, 120, 0.3),
+        0 8px 20px 0 rgba(255, 220, 230, 0.6),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8);
+    padding: 30px 24px 40px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Заголовок с именем */
+.name-title {
+    font-size: clamp(2.8rem, 15vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    color: #a63b5b;
+    text-shadow: 3px 3px 0 #ffd9e2, 6px 6px 0 rgba(240, 150, 170, 0.3);
+    letter-spacing: 2px;
+    word-break: break-word;
+    animation: glitchPop 1.2s ease-out;
+}
+
+@keyframes glitchPop {
+    0% {
+        transform: scale(0.2) rotate(-5deg);
+        opacity: 0;
+        filter: blur(10px);
+    }
+
+    60% {
+        transform: scale(1.05) rotate(1deg);
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.sub-line {
+    font-size: clamp(1.2rem, 5vw, 1.9rem);
+    font-weight: 300;
+    color: #802d4b;
+    background: rgba(255, 245, 240, 0.7);
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 60px;
+    margin-bottom: 28px;
+    backdrop-filter: blur(4px);
+    border: 1px solid white;
+    box-shadow: 0 4px 8px rgba(255, 200, 210, 0.6);
+    transform: rotate(-0.5deg);
+    transition: transform 0.3s;
+}
+
+.sub-line:hover {
+    transform: rotate(0.5deg) scale(1.02);
+}
+
+/* Блок с анимированными открытками */
+.animation-area {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 30px 0 25px;
+    flex-wrap: wrap;
+}
+
+.anim-icon {
+    font-size: 2.8rem;
+    background: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 18px -6px #e2a4b5;
+    border: 3px solid #ffeef2;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: bounceSoft 2.8s infinite ease-in-out;
+}
+
+.anim-icon:nth-child(2) {
+    animation-delay: 0.4s;
+    background: #fee1e8;
+}
+
+.anim-icon:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.anim-icon:nth-child(4) {
+    animation-delay: 1.2s;
+    background: #fef0d2;
+}
+
+@keyframes bounceSoft {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-15px) scale(1.1);
+    }
+}
+
+.anim-icon:hover {
+    transform: scale(1.15) rotate(5deg);
+    background: #ffeef4;
+    box-shadow: 0 20px 25px -8px #d67e9a;
+}
+
+/* Текст поздравления */
+.message {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 42px 18px 42px 18px;
+    padding: 28px 22px;
+    margin: 20px 0 30px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.8), 0 10px 20px rgba(180, 100, 120, 0.15);
+    transition: all 0.4s;
+}
+
+.greeting-text {
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    font-weight: 500;
+    color: #3f2c33;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    word-break: break-word;
+}
+
+.greeting-text p {
+    margin-top: 12px;
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+    font-style: italic;
+    color: #993d5f;
+    font-weight: 400;
+    border-left: 4px solid #ffa5b9;
+    padding-left: 16px;
+    text-align: left;
+}
+
+.wish-list {
+    text-align: left;
+    font-size: clamp(1rem, 3.5vw, 1.3rem);
+    list-style: none;
+    margin-top: 24px;
+}
+
+.wish-list li {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 235, 240, 0.7);
+    padding: 10px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    transform: translateX(0);
+    transition: all 0.3s ease;
+    animation: slideFade 0.6s backwards;
+}
+
+.wish-list li:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.wish-list li:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.wish-list li:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.wish-list li:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.wish-list li:nth-child(5) {
+    animation-delay: 1s;
+}
+
+@keyframes slideFade {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.wish-list li:hover {
+    transform: scale(1.02) translateY(-3px);
+    background: #ffe0e9;
+    box-shadow: 0 6px 14px #f9b8cc;
+}
+
+.wish-icon {
+    font-size: 1.9rem;
+    filter: drop-shadow(2px 4px 4px rgba(200, 100, 120, 0.4));
+}
+
+/* Именинница + кнопка */
+.photo-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 24px 0 16px;
+}
+
+.avatar-circle {
+    width: 120px;
+    height: 120px;
+    background: #ffd8e2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5rem;
+    border: 6px solid white;
+    box-shadow: 0 16px 30px -8px #e297ad;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    animation: pulseRing 2.5s infinite;
+}
+
+@keyframes pulseRing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 160, 190, 0.6);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 160, 190, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 160, 190, 0);
+    }
+}
+
+.avatar-circle:hover {
+    transform: rotate(8deg) scale(1.05);
+}
+
+.btn-surprise {
+    background: linear-gradient(125deg, #ffa5b9, #ff7c9f);
+    border: none;
+    padding: 18px 40px;
+    border-radius: 60px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    box-shadow: 0 12px 0 #ad4b68, 0 8px 20px #f598b2;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+    border: 2px solid #ffeef4;
+    width: fit-content;
+    margin: 20px auto 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    transform: translateY(0);
+    animation: attention 2s infinite;
+}
+
+.btn-surprise:active {
+    transform: translateY(8px);
+    box-shadow: 0 4px 0 #ad4b68, 0 8px 20px #f598b2;
+}
+
+@keyframes attention {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 12px 0 #ad4b68, 0 8px 20px #f598b2;
+    }
+
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 12px 0 #b34f6d, 0 12px 28px #ff90b2;
+    }
+}
+
+/* Скрытое поздравление (появляется по клику) */
+.hidden-message {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease, opacity 0.6s ease, margin 0.4s;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: 32px;
+    padding: 0 18px;
+    margin-top: 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 2px 10px white;
+}
+
+.hidden-message.show {
+    max-height: 400px;
+    opacity: 1;
+    padding: 20px 18px;
+    margin-top: 30px;
+}
+
+.hidden-message p {
+    font-size: 1.3rem;
+    color: #822d4a;
+    font-weight: 500;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-note {
+    margin-top: 25px;
+    font-size: 1rem;
+    color: #aa6f80;
+    text-shadow: 0 2px 4px white;
+    letter-spacing: 1px;
+    border-top: 1px dashed #ffb8cc;
+    padding-top: 18px;
+}
+
+/* Адаптивность */
+@media (max-width: 450px) {
+    .card {
+        padding: 20px 16px;
+    }
+
+    .anim-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2.2rem;
+    }
+
+    .wish-list li {
+        padding: 8px 10px;
+    }
+
+    .btn-surprise {
+        font-size: 1.2rem;
+        padding: 14px 25px;
+    }
+}
+
+/* Дополнительно - маленькие конфетти (псевдоэлементы) */
+.confetti {
+    position: relative;
+}
+
+.hidden-message.show p {
+    animation: fadeUp 0.7s;
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* для красоты добавим градиент на кнопку */
+.btn-surprise span {
+    filter: drop-shadow(0 2px 2px #b34b69);
+}

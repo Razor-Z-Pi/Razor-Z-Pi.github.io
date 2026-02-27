@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>С днём рождения, Яна!</title>
+    <link rel="stylesheet" href="./style/normalize.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <!-- Фоновые анимированные элементы (сердечки, звездочки, шарики) -->
+    <div class="floating-bg">
+        <div class="float-item" style="top: 12%; left: 5%; animation-duration: 16s;">&#10024;</div>
+        <div class="float-item" style="top: 70%; left: 85%; animation-duration: 21s;">&#127800;</div>
+        <div class="float-item" style="top: 30%; left: 92%; animation-duration: 19s;">&#127880;</div>
+        <div class="float-item" style="top: 80%; left: 10%; animation-duration: 14s;">&#128150;</div>
+        <div class="float-item" style="top: 45%; left: 20%; animation-duration: 23s;">&#127881;</div>
+        <div class="float-item" style="top: 15%; left: 80%; animation-duration: 18s;">&#127874;</div>
+        <div class="float-item" style="top: 60%; left: 40%; animation-duration: 25s;">&#127775;</div>
+        <div class="float-item" style="top: 85%; left: 70%; animation-duration: 17s;">&#128149;</div>
+        <div class="float-item" style="top: 22%; left: 48%; animation-duration: 22s;">&#127801;</div>
+    </div>
+
+    <main class="card">
+        <!-- Главный заголовок -->
+        <h1 class="name-title">Яна &#128171;</h1>
+        <div class="sub-line">&#127882; лучшей подруге 	&#127882;</div>
+
+        <!-- Иконки с анимацией -->
+        <div class="animation-area">
+            <div class="anim-icon">&#127874;</div>
+            <div class="anim-icon">&#127880;</div>
+            <div class="anim-icon">&#127873;</div>
+            <div class="anim-icon">&#128144;</div>
+        </div>
+
+        <!-- Основное поздравление -->
+        <div class="message">
+            <div class="greeting-text">
+                С днём рождения, моя дорогая Яна!
+                <p>Твой свет делает этот мир ярче. Спасибо, что ты есть &#128149;</p>
+            </div>
+            <ul class="wish-list">
+                <li><span class="wish-icon">&#127775;</span> Оставайся такой же лучезарной</li>
+                <li><span class="wish-icon">&#9889;</span> Пусть сбываются мечты</li>
+                <li><span class="wish-icon">&#128640;</span> Новых вершин и приключений</li>
+                <li><span class="wish-icon">&#128158;</span> Океан любви и нежности</li>
+                <li><span class="wish-icon">&#127808;</span> Бесконечной удачи</li>
+            </ul>
+        </div>
+
+        <!-- Блок с аватаркой и кнопкой сюрприза -->
+        <div class="photo-block">
+            <div class="avatar-circle">
+                &#127872; 
+                <img src="./image/1.jpg" width="100" height="100" style="border-radius: 50%;">
+                &#127872;
+            </div>
+            <button class="btn-surprise" id="surpriseBtn">
+                <span>&#127873;</span> Сюрприз <span>&#127880;</span>
+            </button>
+        </div>
+
+        <!-- Скрытое сообщение, появляется по клику -->
+        <div class="hidden-message" id="hiddenMsg">
+            <p>
+                <span>&#129392;</span> Яна, ты — невероятная!<br>
+                Желаю, чтобы каждый день дарил улыбку,<br> 
+                настроение было на высоте,<br>
+                а рядом были только лучшие люди!<br>
+                &#127800;&#127804;&#127803; Обнимаю тебя очень крепко! &#127800;&#127804;&#127803;
+                <span style="font-size:2rem; display:block; margin-top:10px;">&#128151;&#128151;&#128151;</span>
+            </p>
+        </div>
+
+        <div class="footer-note">
+            с бесконечной любовью, твоя друг Пашка &#128151;
+        </div>
+    </main>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
