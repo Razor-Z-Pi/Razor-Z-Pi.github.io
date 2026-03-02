@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для Алины &#128150;</title>
+    <link rel="stylesheet" href="./style/normalize.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <!-- Контейнер для анимированных сердечек -->
+    <div id="heart-container"></div>
+
+    <div class="container">
+        <!-- Главный блок -->
+        <section class="hero">
+            <h1>Моя любимая Алина&#128150;</h1>
+            <p>
+                Ты — самое прекрасное, что случилось в моей жизни. Каждый день я благодарю судьбу за то, 
+                что ты есть. Твоя улыбка освещает мой мир ярче тысячи солнц, а твоя сила духа вдохновляет 
+                меня становиться лучше.
+            </p>
+            <p style="animation-delay: 0.8s;">
+                Помни: ты способна на всё! Любые трудности тебе по плечу, потому что ты — невероятная, 
+                сильная и талантливая. Я всегда рядом, чтобы поддержать тебя в любую минуту.
+            </p>
+        </section>
+
+        <!-- Карточки с поддержкой -->
+        <h2 style="text-align: center; color: white; font-size: clamp(2rem, 5vw, 2.8rem); margin: 50px 0 20px;">
+            Почему ты лучшая? &#128171;
+        </h2>
+        
+        <div class="support-grid">
+            <div class="support-card">
+                <div class="card-icon">&#127775;</div>
+                <div class="card-title">Ты уникальна</div>
+                <div class="card-text">В мире нет никого, кто мог бы сравниться с твоей красотой, умом и добротой) Ты — единственная и неповторимая)</div>
+            </div>
+
+            <div class="support-card">
+                <div class="card-icon">&#128170;</div>
+                <div class="card-title">Ты сильная</div>
+                <div class="card-text">Ты справлялась со всеми трудностями раньше и справишься сейчас! Твоя внутренняя сила безгранична)</div>
+            </div>
+
+            <div class="support-card">
+                <div class="card-icon">&#128151;</div>
+                <div class="card-title">Ты любима</div>
+                <div class="card-text">Ты мне очень нравишься) Ты заслуживаешь всей любви мира, и я буду дарить её тебе каждый день.</div>
+            </div>
+
+            <div class="support-card">
+                <div class="card-icon">&#10024;</div>
+                <div class="card-title">Ты талантлива</div>
+                <div class="card-text">Всё, за что ты берёшься, получается прекрасно!) Твой талант и трудолюбие восхищают меня)</div>
+            </div>
+
+            <div class="support-card">
+                <div class="card-icon">&#127802;</div>
+                <div class="card-title">Ты прекрасна</div>
+                <div class="card-text">Твоя красота ослепляет, но ещё прекраснее твоя душа) Ты прекрасна в каждом своём проявлении)</div>
+            </div>
+
+            <div class="support-card">
+                <div class="card-icon">&#129419;</div>
+                <div class="card-title">Ты вдохновляешь</div>
+                <div class="card-text">Ты вдохновляешь меня быть лучше каждый день:) Рядом с тобой я чувствую, что могу свернуть горы)</div>
+            </div>
+        </div>
+
+        <!-- Особое сообщение -->
+        <div class="special-message">
+            <h2>&#128140; Тебе &#128140;</h2>
+            <p>
+                Когда тебе будет трудно — я поддержу)<br>
+                Когда ты будешь сомневаться — я напомню, какая ты замечательная:)<br>
+                Когда ты упадёшь — я помогу подняться. Ты никогда не будешь одна,
+                потому что у тебя есть я и моё бесконечное сердце, полное любви к тебе)
+            </p>
+        </div>
+
+        <!-- Кнопка с сюрпризом -->
+        <div style="text-align: center;">
+            <button class="surprise-btn" onclick="showSurprise()">
+                Нажми для сюрприза &#10024;
+            </button>
+        </div>
+
+        <!-- Модальное окно -->
+        <div id="surpriseModal" class="modal" onclick="closeModal(event)">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <div class="modal-hearts">&#128150; &#128149; &#128151;</div>
+                <h3>Ты справишься со всем!</h3>
+                <p>
+                    Помни, что ты — самая удивительная девушка на свете.<br><br>
+                    У тебя есть сила, мудрость и красота, чтобы преодолеть любые препятствия.<br><br>
+                    Я верю в тебя больше, чем в кого-либо. Ты сможешь всё, к чему прикоснётся твоё сердце.<br><br>
+                    &#128171; Ты — моё вдохновение &#128171;
+                </p>
+                <div class="modal-hearts">&#x1F90D; &#128153; &#10084;&#65039;</div>
+            </div>
+        </div>
+
+        <!-- Футер -->
+        <footer>
+            <p>С любовью и нежностью, твой Пашка	&#128157;</p>
+            <p style="font-size: 0.9rem;">Всегда рядом, всегда твой</p>
+            <p style="font-size: 1.2rem; margin-top: 15px;">&#10084;&#65039; С любовью от Пашки &#10084;&#65039;</p>
+        </footer>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>

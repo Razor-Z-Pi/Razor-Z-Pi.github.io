@@ -1,0 +1,437 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Анимированные частицы (сердечки) */
+.heart-particle {
+    position: fixed;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    animation: floatUp 8s linear infinite;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Главный блок с признанием */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 8vw, 4.5rem);
+    margin-bottom: 20px;
+    animation: glow 3s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 192, 203, 0.5);
+    }
+}
+
+.hero p {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    max-width: 800px;
+    margin: 20px 0;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.5s;
+}
+
+/* Карточки с поддержкой */
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 50px 0;
+    margin: 50px 0;
+}
+
+.support-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideUp 0.8s forwards;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.support-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.support-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.support-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.support-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.support-card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.support-card:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.support-card:nth-child(6) {
+    animation-delay: 1.2s;
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Специальное сообщение */
+.special-message {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 50px;
+    margin: 50px 0;
+    text-align: center;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transform: scale(0.95);
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(0.95);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
+
+.special-message h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 20px;
+}
+
+.special-message p {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Кнопка с сюрпризом */
+.surprise-btn {
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    border: none;
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 30px 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.surprise-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.surprise-btn:active {
+    transform: scale(0.95);
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    color: white;
+    position: relative;
+    animation: slideIn 0.5s;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.close-modal:hover {
+    transform: scale(1.2);
+}
+
+.modal-content h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.modal-hearts {
+    font-size: 3rem;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 30px 0;
+    font-size: 1.1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .support-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .special-message {
+        padding: 30px 20px;
+    }
+
+    .modal-content {
+        padding: 30px 20px;
+    }
+
+    .modal-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .surprise-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* Дополнительные анимации для сердечек в фоне */
+.floating-heart {
+    position: absolute;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
