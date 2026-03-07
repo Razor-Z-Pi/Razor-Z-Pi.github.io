@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>С 8 Марта, любимая:)</title>
+    <link rel="stylesheet" href="./style/normalize.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <!-- Плавающие цветы (фон) -->
+    <div class="floating-flowers">
+        <div class="flower flower1">&#127800;</div>
+        <div class="flower flower2">&#127799;</div>
+        <div class="flower flower3">&#127801;</div>
+        <div class="flower flower4">&#127804;</div>
+        <div class="flower flower5">&#127802;</div>
+        <div class="flower flower6">&#128144;</div>
+    </div>
+
+    <!-- Основная открытка -->
+    <div class="card">
+        <!-- Сердечко сверху -->
+        <div class="heart-decoration">
+            &#128150;
+        </div>
+
+        <!-- Заголовок -->
+        <div class="header">
+            <h1>С 8 марта!</h1>
+            <div class="subtitle">Моей самой любимой девушке Алине)</div>
+        </div>
+
+        <!-- Картинка (SVG сердце в руках) -->
+        <div class="image-section">
+            <div class="image-wrapper">
+                <img width="150px" height="150px" style="border-radius: 50%;" src="./image/1.jpg" alt="Аватар">
+            </div>
+        </div>
+
+        <!-- Тёплые слова -->
+        <div class="message">
+            <div class="greeting">
+                &#127799; С днём весны, нежности и красоты! &#127799;
+            </div>
+            <div class="poem">
+                <p>Ты — свет в моём окне, улыбка и мечта,<br>
+                С тобой любая грусть становится проста:)</p>
+                <p>Пусть этот день подарит море цветов,<br>
+                Радость, тепло и много нежных слов:)</p>
+                <p>Оставайся всегда такой же прекрасной,<br>
+                Самой любимой, самой ясной:З</p>
+            </div>
+        </div>
+
+        <!-- Список пожеланий -->
+        <div class="wishes-grid">
+            <div class="wish-item">
+                <span class="wish-icon">&#127800;</span>
+                <span>Весеннего настроения</span>
+            </div>
+            <div class="wish-item">
+                <span class="wish-icon">&#128144;</span>
+                <span>Море цветов</span>
+            </div>
+            <div class="wish-item">
+                <span class="wish-icon">&#127774;</span>
+                <span>Тепла и солнца</span>
+            </div>
+            <div class="wish-item">
+                <span class="wish-icon">&#10024;</span>
+                <span>Исполнения желаний</span>
+            </div>
+            <div class="wish-item">
+                <span class="wish-icon">❤️</span>
+                <span>Моей любви</span>
+            </div>
+        </div>
+
+        <!-- Сюрприз кнопка -->
+        <button class="surprise-btn" id="surpriseBtn">Нажми меня &#128157;</button>
+
+        <!-- Скрытый блок, который появляется -->
+        <div class="surprise-box" id="surpriseBox">
+            <div class="surprise-content">
+                <div class="heart-animation">&#128150;&#128151;&#128150;</div>
+                <p>Ты — самое прекрасное, что случилось в моей жизни)<br>С 8 Марта, моё солнышко&#128151;</p>
+                <div style="font-size: 2rem;">&#127801;&#127801;&#127801;</div>
+                <p style="font-size: 1.1rem;">Целую бесконечно раз &#128536;</p>
+            </div>
+        </div>
+
+        <!-- Подпись -->
+        <div class="footer">
+            <p>
+                <span>С любовью,</span>
+                <span>Твой Пашка &#128158;</span>
+            </p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">8 марта 2026</p>
+        </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>

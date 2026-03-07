@@ -1,0 +1,446 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(145deg, #fbc2c2 0%, #f8e1e1 40%, #fff0f0 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Анимированные цветы на фоне */
+.floating-flowers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.flower {
+    position: absolute;
+    color: rgba(255, 200, 220, 0.6);
+    font-size: 24px;
+    animation: float 8s infinite ease-in-out;
+    user-select: none;
+}
+
+.flower1 {
+    top: 5%;
+    left: 2%;
+    animation-duration: 14s;
+    font-size: 40px;
+    opacity: 0.5;
+}
+
+.flower2 {
+    bottom: 10%;
+    right: 3%;
+    animation-duration: 12s;
+    font-size: 60px;
+    opacity: 0.4;
+    transform: rotate(15deg);
+}
+
+.flower3 {
+    top: 20%;
+    right: 10%;
+    animation-duration: 16s;
+    font-size: 35px;
+    opacity: 0.5;
+}
+
+.flower4 {
+    bottom: 20%;
+    left: 8%;
+    animation-duration: 10s;
+    font-size: 45px;
+    opacity: 0.5;
+    transform: rotate(-10deg);
+}
+
+.flower5 {
+    top: 40%;
+    left: 15%;
+    animation-duration: 18s;
+    font-size: 30px;
+    opacity: 0.4;
+}
+
+.flower6 {
+    top: 70%;
+    right: 15%;
+    animation-duration: 13s;
+    font-size: 55px;
+    opacity: 0.3;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+/* Основная карточка */
+.card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 48px 24px 48px 24px;
+    box-shadow: 0 30px 50px rgba(255, 120, 140, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1), inset 0 2px 8px rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    width: 100%;
+    padding: 40px 30px;
+    position: relative;
+    z-index: 10;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.3s;
+}
+
+/* Декоративные элементы */
+.heart-decoration {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff99aa;
+    color: white;
+    font-size: 28px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 18px rgba(255, 80, 120, 0.4);
+    border: 3px solid white;
+    z-index: 20;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.1);
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* Шапка */
+.header {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: clamp(2rem, 8vw, 3.8rem);
+    font-weight: 600;
+    background: linear-gradient(135deg, #c43e5c, #e6648c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+    text-shadow: 0 5px 15px rgba(230, 100, 140, 0.3);
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    color: #b24c6e;
+    font-weight: 300;
+    border-bottom: 2px dashed #ffb6c1;
+    padding-bottom: 15px;
+    display: inline-block;
+}
+
+/* Основное изображение */
+.image-section {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 25px;
+    position: relative;
+}
+
+.image-wrapper {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffb3c6, #ffd9e2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 18px 28px rgba(255, 100, 130, 0.4), inset 0 -3px 8px rgba(255, 255, 240, 0.7);
+    border: 5px solid white;
+    transition: 0.4s;
+}
+
+.image-wrapper:hover {
+    transform: scale(1.02) rotate(2deg);
+    box-shadow: 0 25px 35px rgba(255, 80, 120, 0.5);
+}
+
+.image-wrapper svg {
+    width: 160px;
+    height: 160px;
+}
+
+/* Текст поздравления */
+.message {
+    text-align: center;
+    margin: 30px 0 20px;
+}
+
+.greeting {
+    font-size: clamp(1.3rem, 5vw, 2rem);
+    color: #a13e5a;
+    font-weight: 500;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.poem {
+    background: rgba(255, 240, 245, 0.7);
+    border-radius: 60px 20px 60px 20px;
+    padding: 25px 20px;
+    margin: 20px 0;
+    border-left: 6px solid #ff94a4;
+    border-right: 6px solid #ff94a4;
+    box-shadow: inset 0 2px 8px #ffeef2, 0 10px 20px rgba(255, 140, 160, 0.2);
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    color: #5f3a44;
+    font-weight: 400;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.poem p {
+    margin: 12px 0;
+}
+
+/* Блок с пожеланиями (список) */
+.wishes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+    margin: 40px 0 20px;
+}
+
+.wish-item {
+    background: white;
+    border-radius: 50px 16px 50px 16px;
+    padding: 16px 22px;
+    flex: 1 1 160px;
+    max-width: 200px;
+    text-align: center;
+    box-shadow: 0 8px 14px rgba(255, 150, 170, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s;
+    font-weight: 500;
+    color: #b34e6b;
+    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.75);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.wish-item:hover {
+    transform: translateY(-8px);
+    background: white;
+    box-shadow: 0 18px 25px #ffb8c9;
+    border-color: #ffa5b8;
+}
+
+.wish-icon {
+    font-size: 32px;
+    line-height: 1;
+}
+
+/* Интерактивная кнопка */
+.surprise-btn {
+    background: linear-gradient(145deg, #ff8a9f, #ff597e);
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 16px 30px;
+    border-radius: 50px 20px 50px 20px;
+    box-shadow: 0 10px 25px #ff99af;
+    cursor: pointer;
+    transition: 0.2s;
+    margin: 30px auto 10px;
+    display: block;
+    width: fit-content;
+    border: 3px solid white;
+    letter-spacing: 2px;
+}
+
+.surprise-btn:hover {
+    background: linear-gradient(145deg, #ff7595, #ff406e);
+    transform: scale(1.05);
+    box-shadow: 0 16px 30px #ff809d;
+}
+
+.surprise-btn:active {
+    transform: scale(0.98);
+}
+
+/* Скрытый блок для сюрприза */
+.surprise-box {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease-out, opacity 0.4s, margin 0.3s;
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50px 16px 50px 16px;
+    margin-top: 0;
+    backdrop-filter: blur(6px);
+    border: 1px solid white;
+}
+
+.surprise-box.show {
+    max-height: 350px;
+    opacity: 1;
+    margin-top: 30px;
+    padding: 25px 20px;
+}
+
+.surprise-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: #ac3f5c;
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.heart-animation {
+    font-size: 50px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.2);
+    }
+
+    35% {
+        transform: scale(1.1);
+    }
+
+    45% {
+        transform: scale(1.3);
+    }
+
+    55% {
+        transform: scale(1);
+    }
+}
+
+/* Футер */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #b25f77;
+    font-size: 1.1rem;
+    font-weight: 300;
+    border-top: 2px dotted #ffb8c8;
+    padding-top: 25px;
+}
+
+.footer p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .card {
+        padding: 30px 20px;
+        border-radius: 36px 18px 36px 18px;
+    }
+
+    .heart-decoration {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+
+    .image-wrapper {
+        width: 160px;
+        height: 160px;
+    }
+
+    .image-wrapper svg {
+        width: 130px;
+        height: 130px;
+    }
+
+    .wishes-grid {
+        gap: 12px;
+    }
+
+    .wish-item {
+        padding: 14px 12px;
+    }
+
+    .surprise-btn {
+        font-size: 1.2rem;
+        padding: 14px 20px;
+    }
+
+    .flower {
+        opacity: 0.3;
+    }
+}
+
+@media (max-width: 380px) {
+    .wishes-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wish-item {
+        max-width: 100%;
+        width: 100%;
+    }
+}
