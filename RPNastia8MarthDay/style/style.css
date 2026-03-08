@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fdf6e9 0%, #f8e3e8 50%, #efe1f0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Контейнер для летающих цветочков */
+.floating-flowers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.flower {
+    position: absolute;
+    opacity: 0.6;
+    animation: floatFlower linear infinite;
+    filter: drop-shadow(0 5px 10px rgba(255, 182, 193, 0.4));
+    z-index: 1;
+}
+
+@keyframes floatFlower {
+    0% {
+        transform: translateY(100vh) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-20vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Основная карточка */
+.card {
+    position: relative;
+    z-index: 20;
+    max-width: 550px;
+    width: 100%;
+    background: rgba(255, 250, 240, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 60px 20px 60px 20px;
+    box-shadow: 0 40px 60px rgba(180, 130, 150, 0.3),
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        inset 0 2px 10px rgba(255, 255, 255, 0.8);
+    padding: 40px 25px;
+    border: 2px solid rgba(255, 245, 215, 0.9);
+    animation: cardFloat 1.2s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+@keyframes cardFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Декоративный венок из цветов */
+.floral-corner {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #fccfcf 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.floral-corner-right {
+    bottom: -20px;
+    right: -20px;
+    top: auto;
+    left: auto;
+    background: radial-gradient(circle, #d4b8d9 0%, transparent 70%);
+}
+
+/* Заголовок */
+h1 {
+    font-size: 2.4rem;
+    text-align: center;
+    color: #7c4d5e;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 10px rgba(255, 200, 210, 0.8);
+    position: relative;
+}
+
+h1 span {
+    background: linear-gradient(45deg, #c4846b, #b95f7a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.subhead {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #8e6b7c;
+    margin-bottom: 25px;
+    font-style: italic;
+    border-bottom: 2px dotted #e8b6c2;
+    padding-bottom: 15px;
+}
+
+/* Иллюстрация (букет в вазе) */
+.art-block {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    filter: drop-shadow(0 15px 15px #eccfcf);
+}
+
+.art-block svg {
+    max-width: 260px;
+    width: 100%;
+    height: auto;
+    animation: gentleSway 5s infinite alternate ease-in-out;
+    transform-origin: bottom center;
+}
+
+@keyframes gentleSway {
+    0% {
+        transform: rotate(-1deg);
+    }
+
+    100% {
+        transform: rotate(2deg);
+    }
+}
+
+/* Основной текст */
+.greeting-text {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 30px 25px;
+    border-radius: 40px 0 40px 0;
+    margin: 20px 0;
+    border-left: 10px solid #ffc2b3;
+    border-bottom: 10px solid #f3c3d2;
+    box-shadow: inset 0 0 30px #ffe5e5;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #3a2c33;
+    text-align: center;
+}
+
+.greeting-text p {
+    margin-bottom: 15px;
+}
+
+.greeting-text i {
+    color: #bc6f6f;
+    font-size: 1.4rem;
+}
+
+/* Стикеры с пожеланиями */
+.wish-stickers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 30px 0 20px;
+}
+
+.sticker {
+    background: white;
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-weight: 600;
+    color: #65424f;
+    box-shadow: 0 8px 0 #dfa9b5, 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffe2e2;
+    transition: 0.2s;
+    font-size: 1rem;
+    cursor: default;
+    animation: stickerAppear 0.4s backwards;
+}
+
+.sticker:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.sticker:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.sticker:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.sticker:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes stickerAppear {
+    from {
+        opacity: 0;
+        transform: scale(0) rotate(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+.sticker:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 0 #dfa9b5, 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Подпись */
+.signature-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.signature {
+    font-family: 'Great Vibes', 'Brush Script MT', cursive;
+    font-size: 2rem;
+    color: #a6576d;
+    opacity: 0;
+    animation: fadeIn 1s 0.8s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.heart-icon {
+    font-size: 2rem;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.2);
+    }
+
+    35% {
+        transform: scale(1.1);
+    }
+}
+
+/* Кнопка сюрприза */
+.surprise-btn {
+    background: #d38b9c;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff2f2;
+    box-shadow: 0 10px 0 #8a5565, 0 5px 30px #fbc1c1;
+    cursor: pointer;
+    transition: 0.1s linear;
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid #ffe7e7;
+    letter-spacing: 1px;
+}
+
+.surprise-btn:active {
+    transform: translateY(8px);
+    box-shadow: 0 2px 0 #8a5565, 0 5px 20px #fbc1c1;
+}
+
+/* Адаптация */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .greeting-text {
+        font-size: 1rem;
+        padding: 20px 15px;
+    }
+
+    .sticker {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+}
