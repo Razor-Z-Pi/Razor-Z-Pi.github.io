@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Python Челлендж: 40 задач для практики</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>Python Практикум</h1>
+        <p>8 тем - 40 задач</p>
+        <div class="badge-total">40 интерактивных заданий</div>
+    </div>
+
+    <div class="topics-grid" id="topicsContainer"></div>
+
+    <div class="turtle-draw-area">
+        <div class="draw-header">
+            <h3>Черепашка‑рисовалка!!!</h3>
+            <span style="font-size: 0.7rem; background: #00000055; padding: 0.2rem 0.8rem; border-radius: 20px;">кликни по холсту — рисуй!</span>
+        </div>
+        <canvas id="turtleCanvas" width="600" height="400" style="width:100%; height:auto; max-width:600px; aspect-ratio:600/400"></canvas>
+        <div class="draw-controls">
+            <button id="clearCanvasBtn">Очистить</button>
+            <button id="drawSquareBtn">Квадрат</button>
+            <button id="drawStarBtn">Звезда (5 лучей)</button>
+            <button id="drawSpiralBtn">Спираль</button>
+        </div>
+        <p style="color:#ccc; font-size:0.7rem; text-align:center; margin-top:12px;">* Черепашка рисует по кнопкам или мышкой. Попробуйте нарисовать фигуры из задач!</p>
+    </div>
+</div>
+
+<script src="./js/script.js"></script>
+</body>
+</html>

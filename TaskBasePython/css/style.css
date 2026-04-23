@@ -1,0 +1,287 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+body {
+    background: linear-gradient(145deg, #f5f7fc 0%, #eef2f7 100%);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    padding: 2rem 1.5rem;
+    color: #1a2c3e;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #1E6F5C, #289672);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    color: #4a627a;
+    font-size: 1.1rem;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.badge-total {
+    display: inline-block;
+    background: #1e2f3f;
+    color: white;
+    border-radius: 40px;
+    padding: 0.3rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 0.8rem;
+}
+
+/* темы - сетка */
+.topics-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* карточка темы */
+.topic-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(2px);
+    border-radius: 2rem;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.topic-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 40px -14px rgba(0, 0, 0, 0.15);
+}
+
+.topic-header {
+    background: white;
+    padding: 1.2rem 2rem;
+    border-bottom: 3px solid #289672;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.8rem;
+}
+
+.topic-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    background: linear-gradient(120deg, #1a4d3e, #289672);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.topic-count {
+    background: #eef2fa;
+    padding: 0.3rem 0.9rem;
+    border-radius: 60px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1e5f4c;
+}
+
+/* задачи внутри темы */
+.tasks-list {
+    padding: 1rem 1.5rem 1.8rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* отдельная задача */
+.task-item {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    border: 1px solid #e9edf2;
+    transition: all 0.2s;
+}
+
+.task-question {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.7rem;
+    color: #0f2b38;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.task-desc {
+    color: #2c4c6c;
+    margin-bottom: 0.9rem;
+    line-height: 1.4;
+    font-size: 0.95rem;
+    background: #f9fafc;
+    padding: 0.5rem 0.8rem;
+    border-radius: 1rem;
+    border-left: 4px solid #289672;
+}
+
+.answer-hint-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.expected-answer {
+    background: #eef3fc;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: #125a78;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.hint-btn {
+    background: none;
+    border: 1px solid #cbdbe0;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    font-size: 0.75rem;
+    cursor: pointer;
+    color: #2c5a74;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.hint-btn:hover {
+    background: #e6edf4;
+    border-color: #289672;
+    color: #1d6f5a;
+}
+
+.hint-text {
+    background: #fff7e5;
+    border-left: 4px solid #f4b942;
+    padding: 0.6rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    margin-top: 0.8rem;
+    display: none;
+    color: #7a5a2a;
+}
+
+.hint-text.show {
+    display: block;
+}
+
+/* блок для рисования черепашка */
+.turtle-draw-area {
+    margin-top: 2rem;
+    background: #1e2a36;
+    border-radius: 1.8rem;
+    padding: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.draw-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.draw-header h3 {
+    font-weight: 500;
+    font-size: 1.2rem;
+    background: #f9c74f20;
+    padding: 0.2rem 1rem;
+    border-radius: 30px;
+}
+
+canvas {
+    background: #fef9e8;
+    border-radius: 1.2rem;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.draw-controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.draw-controls button {
+    background: #2d3e4b;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.draw-controls button:hover {
+    background: #3d5a6c;
+    transform: scale(0.97);
+}
+
+.reset-canvas {
+    background: #c44536 !important;
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 1rem;
+    }
+
+    .topic-header {
+        padding: 1rem;
+    }
+
+    .topic-title {
+        font-size: 1.3rem;
+    }
+
+    .task-item {
+        padding: 1rem;
+    }
+}
