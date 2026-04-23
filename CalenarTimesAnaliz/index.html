@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Временной календарь - Проблематика планирования — полноэкранные графики</title>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="nav-dots" id="navDots">
+        <div class="dot active" data-slide="0"></div>
+        <div class="dot" data-slide="1"></div>
+        <div class="dot" data-slide="2"></div>
+    </div>
+
+    <div class="slide" id="slide-0">
+        <div class="slide-content">
+            <div class="chart-header">
+                <div class="chart-title">
+                    Коллизия ресурсов и «слепые» пики перегрузки
+                    <span class="badge">Проблема №1</span>
+                </div>
+            </div>
+            <div class="sub">Обычный календарь не видит одновременных назначений → срыв дедлайнов, простой ресурсов</div>
+            <div class="canvas-container">
+                <canvas id="collisionFullChart" width="800" height="400" style="display: block; width:100%; height:auto; max-height:400px;"></canvas>
+            </div>
+            <div class="insight-card">
+                <strong>Красный пик (реальность):</strong> в среду и четверг загрузка взлетает до 91% из-за скрытых коллизий. Календарь не подсветил конфликт → 3 задачи на одного сотрудника одновременно.<br>
+                <strong>Плавный план</strong> — идеальное ожидание, недостижимое без умного инструмента. <strong>Потеря предсказуемости → финансовые риски.</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide" id="slide-1">
+        <div class="slide-content">
+            <div class="chart-header">
+                <div class="chart-title">
+                    Масштабирование бизнес-процессов: экспонента потерь
+                    <span class="badge">Проблема №2</span>
+                </div>
+            </div>
+            <div class="sub">Рост числа параллельных проектов — крах классических календарей и Excel-таблиц</div>
+            <div class="canvas-container">
+                <canvas id="scalingFullChart" width="800" height="400" style="display: block; width:100%; height:auto; max-height:400px;"></canvas>
+            </div>
+            <div class="insight-card">
+                <strong>Обычный календарь / Trello / Excel</strong> → экспоненциальный рост времени на координацию (до 110 ч/нед при 50 процессах). Бизнес задыхается.<br>
+                <strong>Временной календарь событий (лицензия, победа в конкурсе)</strong> → линейно-логарифмическая эффективность, экономия до 70% времени управления.
+            </div>
+        </div>
+    </div>
+
+    <div class="slide" id="slide-2">
+        <div class="slide-content">
+            <div class="chart-header">
+                <div class="chart-title">
+                    «Слепые зоны» между событиями
+                    <span class="badge">Проблема №3</span>
+                </div>
+            </div>
+            <div class="sub">Календарь видит только встречи, но теряет передачу данных, ожидание, согласования → разрыв до +70% времени</div>
+            <div class="canvas-container">
+                <canvas id="blindFullChart" width="800" height="400" style="display: block; width:100%; height:auto; max-height:400px;"></canvas>
+            </div>
+            <div class="insight-card">
+                <strong>Накопленный разрыв:</strong> на этапе «Оплата» реальная длительность 17.8 дней, а календарь показывает лишь 10 дней. <strong>63% скрытых потерь!</strong>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>

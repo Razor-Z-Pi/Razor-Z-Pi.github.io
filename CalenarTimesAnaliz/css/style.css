@@ -1,0 +1,186 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Inter', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+    background: #0b2b2f;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.slide {
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(135deg, #f6fafd 0%, #eef2f7 100%);
+    padding: 1.5rem 2rem;
+    overflow-y: auto;
+    transition: background 0.2s;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Темный акцент для второго графика — контраст */
+.slide:nth-child(2) {
+    background: linear-gradient(125deg, #fef9ef 0%, #f5efe6 100%);
+}
+
+.slide:nth-child(3) {
+    background: linear-gradient(140deg, #ecf7f0 0%, #e0ede8 100%);
+}
+
+/* Контент внутри слайда: центрирование с максимум ширины */
+.slide-content {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(0px);
+    border-radius: 2rem;
+    padding: 1.8rem 2rem 2rem 2rem;
+    box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    transition: transform 0.2s;
+}
+
+/* Заголовочная часть */
+.chart-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #cfdfe8;
+    padding-bottom: 0.7rem;
+}
+
+.chart-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(120deg, #134e5e, #1f7a8c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.badge {
+    background: #e67e22;
+    color: white;
+    border-radius: 40px;
+    padding: 0.2rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.sub {
+    color: #2c6e6e;
+    font-weight: 500;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* Контейнер графика — растягивается, но сохраняет пропорции */
+.canvas-container {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    margin: 0.5rem 0 1rem 0;
+}
+
+canvas {
+    max-height: 420px;
+    width: 100%;
+}
+
+/* Блок с инсайтами (вывод) */
+.insight-card {
+    background: #fef6e0;
+    border-radius: 1.2rem;
+    padding: 1rem 1.5rem;
+    margin-top: 1.2rem;
+    font-weight: 500;
+    color: #2c3e2f;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.insight-card strong {
+    color: #c0392b;
+    font-weight: 700;
+}
+
+/* навигация по слайдам (точки) */
+.nav-dots {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    padding: 12px 10px;
+    border-radius: 40px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.dot.active {
+    background: #e67e22;
+    transform: scale(1.4);
+    box-shadow: 0 0 0 2px white;
+}
+
+.dot:hover {
+    background: #f39c12;
+    transform: scale(1.2);
+}
+
+@media (max-width: 750px) {
+    .slide-content {
+        padding: 1rem;
+    }
+
+    .chart-title {
+        font-size: 1.4rem;
+    }
+
+    .canvas-container {
+        min-height: 280px;
+    }
+
+    .nav-dots {
+        right: 8px;
+        gap: 8px;
+        padding: 8px 6px;
+    }
+}
+
+.slide::-webkit-scrollbar {
+    width: 5px;
+}
