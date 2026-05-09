@@ -1,0 +1,404 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0a1f1a 0%, #0b2b1f 100%);
+    font-family: 'Inter', sans-serif;
+    color: #f5f0e6;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Анимированный фон с георгиевской лентой и звёздами */
+.hero-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.hero-bg::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 20% 40%, rgba(210, 70, 40, 0.08) 0%, rgba(0, 0, 0, 0) 60%),
+        repeating-linear-gradient(45deg, rgba(255, 215, 0, 0.02) 0px, rgba(255, 215, 0, 0.02) 2px, transparent 2px, transparent 8px);
+    animation: slowDrift 40s linear infinite;
+}
+
+@keyframes slowDrift {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-10%, -10%);
+    }
+}
+
+/* Салют частицы */
+.firework {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffb347, #e34d2b);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    animation: blast 1s ease-out forwards;
+}
+
+@keyframes blast {
+    0% {
+        opacity: 1;
+        transform: scale(0.2);
+    }
+
+    70% {
+        opacity: 0.8;
+        transform: scale(1.8);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(3);
+        background: #ffdd77;
+    }
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 1rem;
+    border-radius: 60px 60px 40px 40px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 196, 0, 0.3);
+    box-shadow: 0 20px 35px -15px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease;
+}
+
+.ribbon {
+    display: inline-block;
+    background: linear-gradient(135deg, #d4af37, #f5c542);
+    padding: 0.3rem 1.2rem;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: #1e2a1c;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.3rem, 8vw, 4.2rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, #FFE6B0, #FFB347, #D43F1D);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.5rem;
+}
+
+.double-date {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+}
+
+.badge {
+    background: rgba(30, 30, 20, 0.7);
+    backdrop-filter: blur(4px);
+    padding: 0.5rem 1.2rem;
+    border-radius: 60px;
+    font-weight: 700;
+    border-left: 4px solid #e2b13b;
+    font-size: 1rem;
+}
+
+.badge i {
+    margin-right: 8px;
+    color: #FFB347;
+}
+
+.greeting-text {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 1rem auto 0;
+    line-height: 1.4;
+    color: #e9e2c7;
+}
+
+.photo-gallery {
+    margin: 5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title span {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.3rem 1.8rem;
+    border-radius: 50px;
+    backdrop-filter: blur(4px);
+}
+
+.section-title i {
+    color: #ffb347;
+    margin-right: 8px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.8rem;
+}
+
+.photo-card {
+    background: rgba(20, 20, 16, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 28px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    border: 1px solid rgba(255, 185, 70, 0.4);
+    box-shadow: 0 15px 25px -12px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(25px);
+    animation: fadeUp 0.7s forwards;
+    animation-delay: calc(0.1s * var(--i, 1));
+}
+
+.photo-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: #ffb347;
+    box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.5);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 450px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.photo-card:hover img {
+    transform: scale(1.05);
+}
+
+.photo-caption {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.4);
+    font-size: 0.9rem;
+}
+
+.congrats-package {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.congrat-card {
+    flex: 1;
+    min-width: 260px;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    border-radius: 48px;
+    padding: 2rem 1.8rem;
+    text-align: center;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 200, 100, 0.5);
+    animation: fadeScale 0.6s ease backwards;
+    animation-delay: 0.2s;
+}
+
+.congrat-card:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+.congrat-card:hover {
+    background: rgba(30, 25, 15, 0.7);
+    transform: scale(1.01);
+    border-color: #f5bc70;
+}
+
+.icon-huge {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.congrat-card h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+}
+
+.congrat-card p {
+    line-height: 1.5;
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+
+.btn-glory {
+    display: inline-block;
+    background: linear-gradient(95deg, #b1582c, #e08938);
+    padding: 0.7rem 1.4rem;
+    border-radius: 40px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin-top: 0.7rem;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-glory:hover {
+    background: #c96f34;
+    transform: scale(1.02);
+    letter-spacing: 0.3px;
+}
+
+.firework-btn {
+    text-align: center;
+    margin: 2.5rem 0;
+}
+
+.btn-fire {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #ffb347;
+    padding: 0.9rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 60px;
+    color: #ffdd99;
+    transition: 0.2s;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.btn-fire i {
+    margin-right: 10px;
+}
+
+.btn-fire:hover {
+    background: #d97a2b;
+    color: #1e1b10;
+    border-color: #ffe3a3;
+    box-shadow: 0 0 15px rgba(255, 180, 60, 0.7);
+}
+
+footer {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px dashed rgba(255, 195, 95, 0.4);
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 720px) {
+    .container {
+        padding: 1rem 1rem 3rem;
+    }
+
+    .hero {
+        padding: 1rem;
+        border-radius: 40px;
+    }
+
+    .congrats-package {
+        flex-direction: column;
+    }
+
+    .photo-grid {
+        gap: 1rem;
+    }
+}
+
+.demo-img-placeholder {
+    background: linear-gradient(145deg, #2b3a2a, #1c2c1a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #ffc285;
+    aspect-ratio: 1 / 1;
+}
+
+.georgia-stripe {
+    width: 100%;
+    height: 6px;
+    background: repeating-linear-gradient(90deg, #ff8c42, #ff8c42 20px, #3a2c1f 20px, #3a2c1f 40px);
+    margin-top: 1rem;
+    border-radius: 3px;
+}

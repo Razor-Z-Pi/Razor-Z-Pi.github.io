@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <title>С Днём Победы и Днём Рождения, Друг!!!</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <link rel="stylesheet" href="./style/normalize.css">
+        <link rel="stylesheet" href="./style/style.css">
+    </head>
+    <body>
+
+        <div class="hero-bg"></div>
+
+        <!-- Салютный контейнер (для динамических частиц) -->
+        <div id="fireworkContainer"></div>
+
+        <div class="container">
+            <div class="hero">
+                <div class="ribbon"><i class="fas fa-star-of-life"></i> Дорогой Саша))) <i class="fas fa-gift"></i></div>
+                <h1>С Днём Победы!!!<br>С Днём Рождения, Друг!!!</h1>
+                <div class="double-date">
+                    <div class="badge"><i class="fas fa-tag"></i> 9 мая 1945 – 2026</div>
+                    <div class="badge"><i class="fas fa-birthday-cake"></i> Наш герой родился 9 мая!</div>
+                </div>
+                <p class="greeting-text">
+                    Дорогой друг! 9 мая — священная дата, день великой Победы и твой личный праздник:) <br>
+                    Ты — человек с несгибаемым характером и добрым сердцем. Пусть память о подвиге живёт в веках, а твоя жизнь сияет мирным небом и счастьем:)
+                </p>
+                <div class="georgia-stripe"></div>
+            </div>
+
+            <div class="photo-gallery">
+                <div class="section-title">
+                    <span><i class="fas fa-images"></i> Наши лучшие моменты</span>
+                </div>
+                <div class="photo-grid" id="photosGrid">
+                    <div class="photo-card" style="--i:1">
+                        <img src="./image/2.jpg" alt="Памятное фото" id="userPhoto1">
+                        <div class="photo-caption">&#10024; Топ, № 1 &#10024;</div>
+                    </div>
+                    <div class="photo-card" style="--i:2">
+                        <img src="./image/1.jpg" alt="Памятное фото" id="userPhoto2">
+                        <div class="photo-caption">&#11088; Сила и честь &#11088;</div>
+                    </div>
+                    <div class="photo-card" style="--i:3">
+                        <img src="./image/3.jpg" alt="Памятное фото" id="userPhoto3">
+                        <div class="photo-caption">&#127881; Крутой и умный &#127881;</div>
+                    </div>
+                    <div class="photo-card" style="--i:4">
+                        <img src="./image/4.jpg" alt="Памятное фото" id="userPhoto4">
+                        <div class="photo-caption">&#127942; Победитель &#127942;</div>
+                    </div>
+                    <div class="photo-card" style="--i:5">
+                        <img src="./image/5.jpg" alt="Памятное фото" id="userPhoto5">
+                        <div class="photo-caption">&#128293; Лучший &#128293;</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="congrats-package">
+                <div class="congrat-card">
+                    <div class="icon-huge"><i class="fas fa-medal"></i> <i class="fas fa-dove"></i></div>
+                    <h3>С Днём Победы!</h3>
+                    <p>«Никто не забыт, ничто не забыто». Пусть память о героях придаёт сил, а мирное небо всегда будет над головой. Спасибо дедам за свободу! Гордимся и помним.</p>
+                    <button class="btn-glory" id="victoryToast"><i class="fas fa-fire"></i> Салют Победы</button>
+                </div>
+                <div class="congrat-card">
+                    <div class="icon-huge"><i class="fas fa-birthday-cake"></i> <i class="fas fa-champagne-glasses"></i></div>
+                    <h3>С Днём Рождения!</h3>
+                    <p>Ты — человек-праздник, рождённый 9 мая! Желаем здоровья, удачи, смелых побед, верных друзей и много-много радости. Пусть каждый день будет маленькой победой!</p>
+                    <button class="btn-glory" id="birthdayToast"><i class="fas fa-heart"></i> Обнимашки 🎁</button>
+                </div>
+            </div>
+
+            <!-- Кнопка активации фейерверка -->
+            <div class="firework-btn">
+                <button class="btn-fire" id="startFireworksBtn"><i class="fas fa-rocket"></i> Залп праздничного салюта! <i class="fas fa-sparkle"></i></button>
+            </div>
+
+            <footer>
+                <p>9 мая — День Победы и Твой День! Слава героям! С днём рождения, друг!!!</p>
+            </footer>
+        </div>
+
+        <script src="./js/app.js"></script>
+
+    </body>
+</html>
