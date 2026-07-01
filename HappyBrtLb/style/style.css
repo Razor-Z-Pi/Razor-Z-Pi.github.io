@@ -1,0 +1,226 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 215, 150, 0.08), transparent 60%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -15%;
+    right: -5%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle at 70% 70%, rgba(180, 130, 255, 0.1), transparent 65%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 248, 240, 0.08);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 3.5rem;
+    padding: 2.5rem 2rem 3rem;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 215, 180, 0.2);
+    text-align: center;
+    color: #f7efe2;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.sparkle-icon {
+    font-size: 2.6rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 4px;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 8px rgba(255, 200, 100, 0.7));
+}
+
+h1 {
+    font-size: clamp(2.2rem, 8vw, 3.4rem);
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #ffd6a0, #f9c5d1, #d9b8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0.5rem 0 0.2rem;
+    line-height: 1.2;
+}
+
+.sub-greeting {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #e0cfc0;
+    margin-bottom: 1.8rem;
+    opacity: 0.9;
+    border-bottom: 1px dashed rgba(255, 215, 160, 0.4);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.photo-frame {
+    margin: 1.8rem auto 1.8rem;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f8b195, #f67280, #c06c84);
+    padding: 4px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 0 6px rgba(255, 220, 180, 0.15);
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(30, 20, 40, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.8rem;
+    font-weight: 400;
+    color: #ffe4c4;
+    text-shadow: 0 0 15px #ffb56b;
+    user-select: none;
+    background-image: radial-gradient(circle at 30% 30%, rgba(255, 255, 240, 0.2) 5%, transparent 60%);
+}
+
+.message {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    margin: 1.6rem 0 2.2rem;
+    font-weight: 400;
+    color: #fae3d9;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 1.5rem 1rem;
+    border-radius: 2.5rem;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 200, 0.2);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+.signature {
+    margin-top: 1.8rem;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: #ffd8b5;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.signature span {
+    background: rgba(255, 255, 240, 0.08);
+    padding: 0.2rem 1.2rem;
+    border-radius: 3rem;
+}
+
+.button-glow {
+    background: transparent;
+    border: 1.5px solid rgba(255, 200, 140, 0.7);
+    color: #ffdbb5;
+    padding: 0.8rem 2.2rem;
+    margin-top: 1.6rem;
+    border-radius: 3rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 245, 215, 0.08);
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.button-glow:hover {
+    background: rgba(255, 215, 150, 0.25);
+    border-color: #ffc489;
+    box-shadow: 0 0 18px rgba(255, 180, 80, 0.6);
+    color: white;
+    transform: scale(1.02);
+}
+
+.hidden-message {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    background: rgba(255, 235, 200, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    color: #ffe0c0;
+    transition: all 0.4s ease;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.hidden-message.visible {
+    opacity: 1;
+    max-height: 150px;
+    margin-top: 1.3rem;
+}
+
+@media (max-width: 500px) {
+    .card {
+        padding: 2rem 1.4rem 2.5rem;
+        border-radius: 2.8rem;
+    }
+
+    .photo-frame {
+        width: 125px;
+        height: 125px;
+    }
+
+    .message {
+        font-size: 1.1rem;
+        padding: 1.2rem 0.7rem;
+    }
+}
