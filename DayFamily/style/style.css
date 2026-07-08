@@ -180,6 +180,12 @@
      box-shadow: 0 14px 20px rgba(200, 110, 50, 0.2);
  }
 
+ .image-pozdr img {
+    width: 350px;
+    height: 350px;
+    border-radius: 20%;
+ }
+
  .btn-heart {
      background: #d46b5b;
      border: none;
