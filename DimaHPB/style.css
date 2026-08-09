@@ -1,0 +1,310 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.bg-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: float 8s infinite ease-in-out;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.particle:nth-child(1) {
+    width: 20px;
+    height: 20px;
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+    background: rgba(255, 215, 0, 0.4);
+}
+
+.particle:nth-child(2) {
+    width: 35px;
+    height: 35px;
+    left: 80%;
+    top: 70%;
+    animation-delay: 1.5s;
+    background: rgba(255, 105, 180, 0.3);
+}
+
+.particle:nth-child(3) {
+    width: 15px;
+    height: 15px;
+    left: 45%;
+    top: 15%;
+    animation-delay: 3s;
+    background: rgba(0, 255, 255, 0.4);
+}
+
+.particle:nth-child(4) {
+    width: 50px;
+    height: 50px;
+    left: 15%;
+    top: 80%;
+    animation-delay: 4.5s;
+    background: rgba(255, 99, 71, 0.25);
+}
+
+.particle:nth-child(5) {
+    width: 25px;
+    height: 25px;
+    left: 70%;
+    top: 30%;
+    animation-delay: 6s;
+    background: rgba(138, 43, 226, 0.35);
+}
+
+.particle:nth-child(6) {
+    width: 8px;
+    height: 8px;
+    left: 55%;
+    top: 85%;
+    animation-delay: 2s;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(-35px) rotate(180deg);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateY(0) rotate(360deg);
+        opacity: 0.5;
+    }
+}
+
+.card {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 50px;
+    padding: 40px 30px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(255, 215, 0, 0.25);
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7), 0 0 0 3px rgba(255, 215, 0, 0.5);
+}
+
+/* Иконка короны/подарка */
+.icon-top {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    color: #ffd700;
+    filter: drop-shadow(0 0 20px #ffb347);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+h1 {
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
+    font-weight: 800;
+    background: linear-gradient(to right, #ffd700, #ffaa00, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 25px rgba(255, 200, 0, 0.5);
+}
+
+.friend-name {
+    font-size: clamp(2.5rem, 10vw, 4.5rem);
+    font-weight: 800;
+    color: #ffffff;
+    background: linear-gradient(to bottom, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 10px 0 20px;
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.message {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 25px 0;
+    padding: 0 10px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    padding: 20px 25px;
+    backdrop-filter: blur(5px);
+    text-align: left;
+}
+
+.highlight {
+    color: #ffd966;
+    font-weight: 700;
+}
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 35px 0 25px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 18px 20px;
+    min-width: 120px;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(255, 215, 0, 0.15);
+    transform: scale(1.05);
+    border-color: #ffd700;
+}
+
+.stat-item i {
+    font-size: 2rem;
+    color: #ffd700;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ccc;
+}
+
+.signature {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #ffd966;
+    border-top: 1px dashed rgba(255, 255, 255, 0.3);
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    background: rgba(255, 215, 0, 0.2);
+    border: 2px solid #ffd700;
+    color: #ffd700;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    background: #ffd700;
+    color: #1a1a2e;
+    box-shadow: 0 0 35px #ffb347;
+    border-color: #fff;
+}
+
+/* .confetti-icon {
+    font-size: 1.8rem;
+    margin: 0 5px;
+    animation: spin 3s linear infinite;
+    display: inline-block;
+} */
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 500px) {
+    .card {
+        padding: 30px 20px;
+        border-radius: 40px;
+    }
+
+    .stats {
+        gap: 12px;
+    }
+
+    .stat-item {
+        min-width: 90px;
+        padding: 14px 10px;
+    }
+}
