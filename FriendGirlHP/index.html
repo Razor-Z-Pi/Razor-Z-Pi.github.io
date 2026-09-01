@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>С днём рождения!!!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="floating-shape shape1"></div>
+  <div class="floating-shape shape2"></div>
+  <div class="floating-shape shape3"></div>
+  <div class="floating-shape shape4"></div>
+
+  <canvas id="fireworks-canvas"></canvas>
+
+  <main class="birthday-card">
+    <h1 class="greeting-title">С Днём Рождения!!!</h1>
+    <div class="subtitle">&#127881; Сегодня твой день &#127881;</div>
+
+    <div class="photo-wrapper">
+      <img src="./1.jpg"
+           alt="Фото именинницы" loading="lazy">
+    </div>
+
+    <div class="name-label">&#10024; Лучшая &#10024;</div>
+
+    <div class="greeting-text">
+      <p>&#127874; С днём рождения!!! &#127874;</p>
+      <p>Пусть этот день будет наполнен смехом, теплом и самыми светлыми моментами!!!</p>
+    </div>
+
+    <!-- Кнопка для сюрприза -->
+    <button class="btn-surprise" id="surpriseBtn">
+      <span>&#127873;</span> Открыть сюрприз
+    </button>
+
+    <!-- Скрытое дополнительное поздравление -->
+    <div class="hidden-message" id="hiddenMessage">
+      <p>&#127800;Пусть исполняются самые смелые мечты, а рядом всегда будут верные друзья и любимые люди)&#127800;</p>
+    </div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
