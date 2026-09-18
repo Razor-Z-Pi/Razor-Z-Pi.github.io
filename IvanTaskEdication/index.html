@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алгоритмизация - Задачки</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-dark mb-4">
+    <div class="container">
+        <span class="navbar-brand mb-0 h1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-cpu me-2" viewBox="0 0 16 16">
+                <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h.5a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-.5v1.5a.5.5 0 0 1-1 0V12h-1v1.5a.5.5 0 0 1-1 0V12h-1v1.5a.5.5 0 0 1-1 0V12h-1v1.5a.5.5 0 0 1-1 0V12H6v1.5a.5.5 0 0 1-1 0V12h-.5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2H5V.5a.5.5 0 0 1 .5-.5zM3 4v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"/>
+                <path d="M5 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm3 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm3 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+            </svg>
+            Алгоритмизация - Задачки
+        </span>
+    </div>
+</nav>
+
+<div class="container mb-5">
+    <div class="row mb-4">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-5 fw-bold" style="color: var(--deep-blue);">Базовые задачи</h1>
+            <p class="lead text-secondary">Изучай алгоритмы шаг за шагом. Примеры, объяснения и интерактивная песочница для рисования.</p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Задача № 1: Сумма чисел -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Задача 1: Сумма чисел</span>
+                    <span class="badge-task">цикл</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Найти сумму всех целых чисел от 1 до N.</p>
+                    <div class="code-block mb-3">
+                        let sum = 0;<br>
+                        for (let i = 1; i <= n; i++) {<br>
+                        sum += i;<br>
+                        }<br>
+                        console.log(sum);
+                    </div>
+                    <p class="text-secondary small"><strong>Объяснение:</strong> Используем цикл <code>for</code>, накапливая сумму в переменной <code>sum</code>. Сложность O(n).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Задача № 2: Факториал -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Задача 2: Факториал</span>
+                    <span class="badge-task">рекурсия / цикл</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Вычислить факториал числа N (N!).</p>
+                    <div class="code-block mb-3">
+                        function factorial(n) {<br>
+                        if (n === 0) return 1;<br>
+                        return n * factorial(n - 1);<br>
+                        }
+                    </div>
+                    <p class="text-secondary small"><strong>Объяснение:</strong> Рекурсивный спуск до базового случая (0! = 1). Альтернатива — цикл. Сложность O(n).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Задача № 3: Четность -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Задача 3: Проверка четности</span>
+                    <span class="badge-task">условие</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Определить, является ли число N чётным.</p>
+                    <div class="code-block mb-3">
+                        if (n % 2 === 0) {<br>
+                        console.log("Чётное");<br>
+                        } else {<br>
+                        console.log("Нечётное");<br>
+                        }
+                    </div>
+                    <p class="text-secondary small"><strong>Объяснение:</strong> Оператор <code>%</code> возвращает остаток от деления. Если остаток 0 — число чётное.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Задача № 4: Максимум из трёх -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Задача 4: Максимум из трёх</span>
+                    <span class="badge-task">ветвление</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Найти наибольшее из трёх чисел a, b, c.</p>
+                    <div class="code-block mb-3">
+                        let max = a;<br>
+                        if (b > max) max = b;<br>
+                        if (c > max) max = c;<br>
+                        console.log(max);
+                    </div>
+                    <p class="text-secondary small"><strong>Объяснение:</strong> Последовательно сравниваем текущий максимум с каждым числом. Просто и эффективно.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Задача № 5: Реверс строки -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Задача 5: Реверс строки</span>
+                    <span class="badge-task">строки</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Перевернуть строку задом наперёд.</p>
+                    <div class="code-block mb-3">
+                        function reverse(str) {<br>
+                        let result = '';<br>
+                        for (let i = str.length - 1; i >= 0; i--) {<br>
+                            result += str[i];<br>
+                        }<br>
+                        return result;<br>
+                        }
+                    </div>
+                    <p class="text-secondary small"><strong>Объяснение:</strong> Идём по строке с конца, добавляя символы в новую строку. Сложность O(n).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Задача № 6: Поиск элемента -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Задача 6: Линейный поиск</span>
+                    <span class="badge-task">массивы</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Найти индекс элемента X в массиве (или -1).</p>
+                    <div class="code-block mb-3">
+                        function findIndex(arr, x) {<br>
+                        for (let i = 0; i < arr.length; i++) {<br>
+                            if (arr[i] === x) return i;<br>
+                        }<br>
+                        return -1;<br>
+                        }
+                    </div>
+                    <p class="text-secondary small"><strong>Объяснение:</strong> Перебираем элементы по порядку. В худшем случае O(n).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Блок с дополнительными пояснениями -->
+    <div class="row mt-5">
+        <div class="col-lg-10 mx-auto">
+            <div class="card bg-white">
+                <div class="card-body p-4">
+                    <h3 class="h5 mb-3" style="color: var(--deep-blue);">Как работать с задачами</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><span class="icon-blue">*</span> Разбери условие, определи входные и выходные данные.</li>
+                        <li class="mb-2"><span class="icon-blue">*</span> Продумай алгоритм: какие переменные нужны, сколько шагов.</li>
+                        <li class="mb-2"><span class="icon-blue">*</span> Запиши псевдокод или код на знакомом языке.</li>
+                        <li class="mb-2"><span class="icon-blue">*</span> Проверь на крайних случаях (0, отрицательные, пустые массивы).</li>
+                        <li class="mb-2"><span class="icon-blue">*</span> Оцени сложность (O-нотацию).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Canvas: рисование и сохранение -->
+    <div class="row mt-5">
+        <div class="col-lg-10 mx-auto">
+            <h2 class="section-title mb-4">Песочница для рисования</h2>
+            <div class="card">
+                <div class="card-body p-4">
+                    <p class="text-secondary mb-3">Рисуй мышью или пальцем. Твой рисунок <strong>автоматически сохраняется</strong> в localStorage и не исчезнет после перезагрузки страницы!!!</p>
+                    <div class="d-flex canvas-controls mb-3">
+                        <button class="btn-blue" id="clearCanvasBtn">Очистить холст</button>
+                        <button class="btn-outline-blue" id="saveCanvasBtn">Сохранить сейчас</button>
+                        <span class="align-self-center text-secondary small" id="saveStatus">Сохранение: авто</span>
+                    </div>
+                    <canvas id="drawCanvas" width="800" height="400"></canvas>
+                </div>
+            </div>
+            <p class="footer-note mt-3">Холст адаптируется под ширину экрана, но внутреннее разрешение фиксировано 800×400. Рисуй в своё удовольствие!!!</p>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center py-4 text-secondary small">
+    <div class="container">Razor_Z_Pi приветсвует!!!</div>
+</footer>
+
+<!-- Bootstrap JS (не обязателен, но пусть будет, на всякий!!!) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
