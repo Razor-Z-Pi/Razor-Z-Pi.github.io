@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>С днём рождения!!!</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <canvas id="particles"></canvas>
+
+    <div class="birthday-card">
+    <div class="top-glow"></div>
+
+    <h1 class="greeting-title">
+        С днём рождения,
+        <span class="name-highlight" id="namePlaceholder">Станислав</span>
+    </h1>
+
+    <p class="subtitle">
+        Позравляю!!! Это твой день
+    </p>
+
+    <div class="message-box">
+        <div class="message-text" id="typedMessage"></div>
+    </div>
+
+    <button class="wish-trigger" id="wishButton">
+        Открыть пожелание
+    </button>
+    </div>
+
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="wish-popup" id="wishPopup">
+    <p id="wishText"></p>
+    <button class="close-btn" id="closePopup">Закрыть</button>
+    </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
