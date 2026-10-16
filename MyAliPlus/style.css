@@ -1,0 +1,489 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(145deg, #0b0b1a 0%, #1a1a2e 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    color: #fff;
+    position: relative;
+    padding: 1rem;
+}
+
+.title_form {
+    margin: 30px;
+}
+
+/* Канвас для частиц */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Основной контейнер */
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    width: 100%;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+/* Светящиеся круги на фоне */
+.glow-spot {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.25;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.glow-1 {
+    width: 400px;
+    height: 400px;
+    background: #ff6b9d;
+    top: -100px;
+    left: -100px;
+    animation: floatGlow 12s infinite alternate ease-in-out;
+}
+
+.glow-2 {
+    width: 500px;
+    height: 500px;
+    background: #a18cd1;
+    bottom: -150px;
+    right: -150px;
+    animation: floatGlow 15s infinite alternate-reverse ease-in-out;
+}
+
+.glow-3 {
+    width: 300px;
+    height: 300px;
+    background: #fbc2eb;
+    top: 40%;
+    right: 10%;
+    animation: floatGlow 10s infinite alternate ease-in-out;
+}
+
+@keyframes floatGlow {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(50px, 30px) scale(1.2);
+    }
+}
+
+/* Заголовок */
+.title-section {
+    text-align: center;
+    animation: fadeInDown 1.2s ease-out;
+}
+
+.title-section h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3rem, 12vw, 5.5rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffe6f0, #ffb6c1, #ff8da1, #ffb6c1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    animation: pulseText 3s infinite alternate;
+}
+
+@keyframes pulseText {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 25px rgba(255, 105, 180, 0.8));
+    }
+}
+
+.subtitle {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    font-weight: 300;
+    color: #e0c9e9;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+    animation: fadeInUp 1s 0.3s both;
+}
+
+/* Карточка с пожеланиями */
+.wish-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 182, 193, 0.3);
+    border-radius: 48px;
+    padding: 2rem 1.8rem;
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 25px 40px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 192, 203, 0.2) inset;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: floatCard 6s infinite alternate ease-in-out;
+    text-align: center;
+    cursor: default;
+    margin-bottom: 0.5rem;
+}
+
+.wish-card:hover {
+    transform: scale(1.01) translateY(-5px);
+    box-shadow: 0 35px 55px -12px #ff69b4, 0 0 0 2px rgba(255, 192, 203, 0.4) inset;
+}
+
+@keyframes floatCard {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-12px);
+    }
+}
+
+.wish-text {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    line-height: 1.5;
+    font-weight: 400;
+    color: #fff0f5;
+    text-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    transition: opacity 0.4s ease;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.wish-text i {
+    color: #ffb6c1;
+    margin: 0 6px;
+    font-size: 1.4rem;
+    vertical-align: middle;
+}
+
+/* Кнопки */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.2rem;
+}
+
+.btn {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 182, 193, 0.6);
+    color: #ffe4ec;
+    padding: 0.9rem 1.8rem;
+    border-radius: 50px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    flex: 0 1 auto;
+    min-width: 180px;
+}
+
+.btn i {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    background: rgba(255, 105, 180, 0.25);
+    border-color: #ffb6c1;
+    box-shadow: 0 0 25px #ff69b4, 0 10px 25px -5px #000;
+    color: #fff;
+    transform: scale(1.03);
+}
+
+.btn:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff6b9d, #b06ab3);
+    border: none;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 0 20px #ff6b9d80;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ff85b3, #c07bd0);
+    box-shadow: 0 0 40px #ff6b9d, 0 10px 25px -5px #000;
+}
+
+/* Секция с сердцем и признанием */
+.interactive-heart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0 0.5rem;
+    animation: fadeInUp 1.2s 0.6s both;
+}
+
+.heart-btn {
+    background: none;
+    border: none;
+    font-size: clamp(3rem, 15vw, 4.5rem);
+    color: #ff4d6d;
+    cursor: pointer;
+    filter: drop-shadow(0 0 15px #ff4d6d);
+    transition: transform 0.2s ease, filter 0.2s ease;
+    animation: heartbeat 1.5s infinite ease-in-out;
+    padding: 0.5rem;
+    line-height: 1;
+}
+
+.heart-btn:hover {
+    filter: drop-shadow(0 0 35px #ff4d6d);
+    transform: scale(1.1);
+}
+
+.heart-btn:active {
+    transform: scale(0.9);
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.15);
+    }
+
+    40% {
+        transform: scale(1.05);
+    }
+
+    60% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.heart-hint {
+    font-size: 0.9rem;
+    color: #cba6d9;
+    margin-top: 0.3rem;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+/* Модальное окно с любовным посланием */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 5, 20, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    padding: 1.5rem;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #1f1a2e, #2a1e36);
+    border: 1px solid #ffb6c180;
+    border-radius: 40px;
+    max-width: 550px;
+    width: 100%;
+    padding: 2.5rem 1.8rem;
+    text-align: center;
+    box-shadow: 0 30px 60px -15px #ff69b4, 0 0 0 1px #ffb6c140 inset;
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, #ffb6c1, #ff8da1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #f0e0f0;
+    margin-bottom: 1.8rem;
+    font-weight: 300;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content .signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #ffb6c1;
+    margin-top: 0.5rem;
+    text-shadow: 0 0 20px #ff69b4;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #ffb6c1;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.close-modal:hover {
+    color: #ff4d6d;
+    transform: scale(1.2) rotate(90deg);
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+    .container {
+        gap: 1.8rem;
+    }
+
+    .wish-card {
+        padding: 1.8rem 1.2rem;
+        border-radius: 36px;
+    }
+
+    .wish-text {
+        min-height: 130px;
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.4rem;
+        min-width: 150px;
+    }
+
+    .modal-content {
+        padding: 2rem 1.2rem;
+        border-radius: 30px;
+    }
+
+    .modal-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .modal-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .button-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Анимации появления */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Кнопка смены пожелания */
+.btn-icon-only i {
+    margin: 0;
+}
