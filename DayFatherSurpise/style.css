@@ -1,0 +1,353 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(145deg, #1e2b3a 0%, #0f1a24 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 3s infinite alternate;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.card {
+    position: relative;
+    z-index: 10;
+    max-width: 780px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 48px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 215, 0, 0.1) inset;
+    transition: transform 0.3s ease, box-shadow 0.4s ease;
+    text-align: center;
+    color: #fff;
+    animation: cardAppear 1.2s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+}
+
+.card:hover {
+    box-shadow: 0 45px 90px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(255, 215, 0, 0.25) inset;
+    transform: scale(1.01);
+}
+
+@keyframes cardAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.emoji-string {
+    font-size: 2.8rem;
+    letter-spacing: 0.8rem;
+    margin-bottom: 0.75rem;
+    animation: floatEmoji 3s infinite ease-in-out;
+    filter: drop-shadow(0 8px 12px rgba(255, 200, 100, 0.5));
+    word-break: break-word;
+}
+
+@keyframes floatEmoji {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+h1 {
+    font-size: clamp(2.2rem, 8vw, 4rem);
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #ffd966, #ffb347, #ff8c42);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(255, 180, 50, 0.5);
+    margin-bottom: 1rem;
+    animation: glow 2.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 20px rgba(255, 180, 50, 0.4);
+    }
+
+    100% {
+        text-shadow: 0 0 45px rgba(255, 200, 70, 0.9), 0 0 20px rgba(255, 160, 30, 0.8);
+    }
+}
+
+.message {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    line-height: 1.6;
+    color: #e6eef7;
+    max-width: 600px;
+    margin: 1.8rem auto 2.2rem;
+    padding: 0 0.5rem;
+    opacity: 0.95;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.message strong {
+    color: #ffd966;
+    font-weight: 600;
+    text-shadow: 0 0 15px rgba(255, 200, 50, 0.6);
+}
+
+/* ----- ИНТЕРАКТИВНАЯ КНОПКА ----- */
+.btn-heart {
+    background: linear-gradient(145deg, #ffb347, #ff8c42);
+    border: none;
+    padding: 1rem 2.8rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e2b3a;
+    border-radius: 60px;
+    cursor: pointer;
+    box-shadow: 0 15px 30px -8px rgba(255, 140, 50, 0.5), 0 0 0 2px rgba(255, 215, 100, 0.4);
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-heart:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 25px 40px -6px #ff8c42, 0 0 0 4px rgba(255, 215, 100, 0.6);
+    background: linear-gradient(145deg, #ffc266, #ff9a4d);
+}
+
+.btn-heart:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 10px 20px -5px #ff8c42;
+}
+
+/* анимация пульсации на кнопке */
+.btn-heart::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    border-radius: 50%;
+    transition: transform 0.5s, opacity 0.6s;
+    pointer-events: none;
+}
+
+.btn-heart:active::after {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.4;
+    transition: 0s;
+}
+
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 2rem;
+    user-select: none;
+    animation: floatUp 4s ease-out forwards;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 8px rgba(255, 80, 120, 0.8));
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.6);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+        transform: translateY(-20px) rotate(10deg) scale(1);
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(25deg) scale(1.3);
+        opacity: 0;
+    }
+}
+/* 
+.timer-block {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 80px;
+    padding: 1rem 1.8rem;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    transition: border-color 0.3s;
+}
+
+.timer-block:hover {
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+.timer-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #aabbcc;
+    font-weight: 300;
+}
+
+.timer {
+    display: flex;
+    gap: 1.2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffd966;
+    text-shadow: 0 0 15px #ffb347;
+}
+
+.timer span {
+    background: rgba(0, 0, 0, 0.35);
+    padding: 0.3rem 0.7rem;
+    border-radius: 18px;
+    min-width: 65px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 2px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.timer small {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.8;
+    margin-left: 2px;
+} */
+
+/* ----- АДАПТИВ ----- */
+@media (max-width: 550px) {
+    .card {
+        padding: 2rem 1.2rem;
+        border-radius: 36px;
+    }
+
+    .emoji-string {
+        font-size: 2.2rem;
+        letter-spacing: 0.4rem;
+    }
+
+    .btn-heart {
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+        gap: 8px;
+    }
+
+    .timer {
+        font-size: 1.3rem;
+        gap: 0.6rem;
+    }
+
+    .timer span {
+        min-width: 50px;
+        padding: 0.2rem 0.4rem;
+        border-radius: 14px;
+    }
+
+    .timer-block {
+        padding: 0.8rem 1rem;
+    }
+
+    .message {
+        margin: 1.2rem auto 1.6rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .timer {
+        font-size: 1rem;
+        gap: 0.3rem;
+    }
+
+    .timer span {
+        min-width: 38px;
+        padding: 0.1rem 0.2rem;
+    }
+}
+
+/* убираем скролл при переполнении */
+body {
+    overflow-y: auto;
+}
