@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>С днём рождения!!!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/normalize.css">
+    <link rel="stylesheet" href="./style/style.css">
+  </head>
+
+  <body>
+
+    <canvas id="matrix" aria-hidden="true"></canvas>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <main>
+      <h1>
+        <span class="glitch" data-text="С ДНЁМ РОЖДЕНИЯ!!!">С ДНЁМ РОЖДЕНИЯ Степан Борисович!!!</span>
+      </h1>
+
+      <p class="subtitle">
+        <span class="accent">const</span> teacher = <span class="str">"тот, кто научил нас думать"</span>;<br>
+        <span class="c">// ниже — небольшой скрипт с самыми тёплыми словами</span>
+      </p>
+
+      <section class="window" aria-label="Терминал">
+        <div class="window__bar">
+          <span class="dot dot--r"></span>
+          <span class="dot dot--y"></span>
+          <span class="dot dot--g"></span>
+          <span class="window__title"><b>bash</b> — birthday@session — 80×24</span>
+        </div>
+        <div class="term" id="term"></div>
+      </section>
+
+      <section class="window" aria-label="Код поздравления">
+        <div class="window__bar">
+          <span class="dot dot--r"></span>
+          <span class="dot dot--y"></span>
+          <span class="dot dot--g"></span>
+          <span class="window__title"><b>greeting.js</b> — UTF-8</span>
+        </div>
+        <pre class="code" id="code"><code><span class="ln"><span class="c">/* greeting.js — написано Пашкой, проверено совестью */</span></span><span class="ln"> </span><span class="ln"><span class="k">class</span> <span class="t">Teacher</span> <span class="k">extends</span> <span class="t">Human</span> {</span><span class="ln">  <span class="f">constructor</span>(<span class="n">имя</span>) {</span><span class="ln">    <span class="k">super</span>();</span><span class="ln">    <span class="k">this</span>.<span class="n">имя</span>      = <span class="n">имя</span>;</span><span class="ln">    <span class="k">this</span>.<span class="n">терпение</span> = <span class="p">Infinity</span>;</span><span class="ln">    <span class="k">this</span>.<span class="n">знания</span>   = [<span class="s">"алгоритмы"</span>, <span class="s">"логика"</span>, <span class="s">"жизнь"</span>];</span><span class="ln">  }</span><span class="ln"> </span><span class="ln">  <span class="f">вдохновлять</span>(<span class="n">студенты</span>) {</span><span class="ln">    <span class="k">return</span> <span class="n">студенты</span>.<span class="f">map</span>(<span class="n">s</span> <span class="o">=&gt;</span> <span class="n">s</span>.<span class="f">расти</span>());</span><span class="ln">  }</span><span class="ln">}</span><span class="ln"> </span><span class="ln"><span class="k">const</span> <span class="n">today</span> <span class="o">=</span> <span class="k">new</span> <span class="t">Date</span>();</span><span class="ln"> </span><span class="ln"><span class="k">if</span> (<span class="n">today</span>.<span class="f">деньРождения</span>(<span class="n">teacher</span>)) {</span><span class="ln">  <span class="f">console</span>.<span class="f">log</span>(<span class="s">"С днём рождения!"</span>);</span><span class="ln">  <span class="f">emit</span>(<span class="s">"уважение"</span>, <span class="s">"благодарность"</span>, <span class="s">"восхищение"</span>);</span><span class="ln">}</span></code></pre>
+      </section>
+
+      <section class="panel" aria-label="Характеристики">
+        <div class="panel__label">teacher.stats :)</div>
+
+        <div class="stat" data-stat>
+          <div class="stat__head"><span>терпение</span><b>100%</b></div>
+          <div class="bar"><i style="--w:100%;background:linear-gradient(90deg,#22d3ee,#34d399);color:#22d3ee"></i></div>
+        </div>
+
+        <div class="stat" data-stat>
+          <div class="stat__head"><span>глубина знаний</span><b>100%</b></div>
+          <div class="bar"><i style="--w:100%;background:linear-gradient(90deg,#a78bfa,#22d3ee);color:#a78bfa"></i></div>
+        </div>
+
+        <div class="stat" data-stat>
+          <div class="stat__head"><span>умение объяснять сложное простыми словами</span><b>100%</b></div>
+          <div class="bar"><i style="--w:100%;background:linear-gradient(90deg,#34d399,#fbbf24);color:#34d399"></i></div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button class="btn" id="runBtn" type="button">./run greeting.sh</button>
+        <span class="hint" id="hint">// нажмите, чтобы скомпилировать поздравление</span>
+      </div>
+
+      <section class="reveal" id="reveal" aria-live="polite">
+        <div class="window">
+          <div class="window__bar">
+            <span class="dot dot--r"></span>
+            <span class="dot dot--y"></span>
+            <span class="dot dot--g"></span>
+            <span class="window__title"><b>output</b> — build successful</span>
+          </div>
+          <div class="msg">
+            <p class="lead">Дорогой наш преподаватель!</p>
+
+            <p>
+              Каждое ваше занятие — это <span class="key">коммит в наше будущее</span>.
+              Вы учили нас не только синтаксису, но и тому, как думать, где искать ошибки
+              и почему не стоит сдаваться после сотого дебага.
+            </p>
+
+            <p>
+              Спасибо за терпение, за веру в нас и за то, что даже самый скучный цикл
+              в вашем исполнении превращался в историю.
+            </p>
+
+            <p>
+              Желаем, чтобы в вашей жизни было как можно меньше <span class="key">багов</span>,
+              как можно больше интересных задач, стабильного аптайма, крепкого здоровья
+              и поводов для радости каждый день.
+            </p>
+
+            <p>
+              Пусть этот год станет самым удачным релизом — без откатов и без горящих дедлайнов.
+              <span class="key">С днём рождения!</span>
+            </p>
+
+            <p class="sign">— от студента Паши <span style="font-style:normal;color:#22d3ee">// exit code 0</span></p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <span class="c">// p.s. домашку мы всё-таки сделали</span>
+      </footer>
+
+    </main>
+
+    <script src="./app/app.js"></script>
+  </body>
+</html>
